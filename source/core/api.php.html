@@ -1,0 +1,185 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../js/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shCore.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shBrushJScript.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shBrushPhp.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shBrushXml.js"></script>
+        <link href="../../syntax_highlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="../../syntax_highlighter/styles/shCoreEclipse.css" rel="stylesheet" type="text/css" />
+        <link href="../../syntax_highlighter/styles/shThemeWordpress.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+
+/**
+ * Register a connection between two post types.
+ *
+ * This creates the appropriate meta box in the admin edit screen.
+ *
+ * Takes the following parameters, as an associative array:
+ *
+ * - 'id' - string A unique identifier for this connection type (optional).
+ *
+ * - 'from' - string|array The first end of the connection.
+ *
+ * - 'from_query_vars' - array Additional query vars to pass to WP_Query. Default: none.
+ *
+ * - 'to' - string|array The second end of the connection.
+ *
+ * - 'to_query_vars' - array Additional query vars to pass to WP_Query. Default: none.
+ *
+ * - 'fields' - array( key =&gt; Title ) Metadata fields editable by the user. Default: none.
+ *
+ * - 'data' - array( key =&gt; value ) Metadata fields not editable by the user. Dfault: none.
+ *
+ * - 'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'
+ *
+ * - 'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.
+ *
+ * - 'sortable' - string A custom field key used to add a special column that allows manual connection ordering. Default: false.
+ *
+ * - 'title' - string The box's title. Default: 'Connected {$post_type}s'
+ *
+ * - 'indeterminate_direction' - string When the direction can't be decided, use this instead. Can be 'from', 'to' or 'any'. Default: 'any'.
+ *
+ * - 'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'from'.
+ *
+ * - 'context' - string Where should the box show up by default. Possible values: 'advanced' or 'side'
+ *
+ * - 'can_create_post' - bool Whether to allow post creation via the connection box. Default: true.
+ *
+ * @param array $args
+ *
+ * @return bool|object False on failure, P2P_Connection_Type instance on success.
+ */
+function p2p_register_connection_type( $args ) {
+	if ( !did_action('init') ) {
+		trigger_error( &quot;Connection types should not be registered before the 'init' hook.&quot; );
+	}
+
+	$argv = func_get_args();
+
+	if ( count( $argv ) &gt; 1 ) {
+		$args = array();
+		foreach ( array( 'from', 'to', 'reciproca' ) as $i =&gt; $key ) {
+			if ( isset( $argv[ $i ] ) )
+				$args[ $key ] = $argv[ $i ];
+		}
+	}
+
+	$args = wp_parse_args( $args, array(
+		'show_ui' =&gt; 'from',
+		'fields' =&gt; array(),
+		'context' =&gt; 'side',
+		'can_create_post' =&gt; true
+	) );
+
+	if ( isset( $args['reciprocal'] ) ) {
+		trigger_error( &quot;The 'reciprocal' arg for p2p_register_connection_type() is deprecated. Use 'indeterminate_direction' or 'show_ui' instead.&quot; );
+
+		if ( true === $args['reciprocal'] ) {
+			$args['show_ui'] = 'any';
+		} elseif ( false === $args['reciprocal'] ) {
+			$args['indeterminate_direction'] = 'from';
+		}
+
+		unset( $args['reciprocal'] );
+	}
+
+	return P2P_Connection_Type::register( $args );
+}
+
+/**
+ * Get a connection type.
+ *
+ * @param string $id Connection type id
+ *
+ * @return bool|object False if connection type not found, P2P_Connection_Type instance on success.
+ */
+function p2p_type( $id ) {
+	return P2P_Connection_Type::get( $id );
+}
+
+/**
+ * Delete one or more connections.
+ *
+ * @param int|array $p2p_id Connection ids
+ *
+ * @return int Number of connections deleted
+ */
+function p2p_delete_connection( $p2p_id ) {
+	return P2P_Storage::delete( $p2p_id );
+}
+
+/**
+ * Split some posts based on a certain connection field.
+ *
+ * @param object|array A WP_Query instance, or a list of post objects
+ * @param string $key p2pmeta key
+ */
+function p2p_split_posts( $posts, $key ) {
+	if ( is_object( $posts ) )
+		$posts = $posts-&gt;posts;
+
+	$buckets = array();
+
+	foreach ( $posts as $post ) {
+		$buckets[ p2p_get_meta( $post-&gt;p2p_id, $key, true ) ][] = $post;
+	}
+
+	return $buckets;
+}
+
+/**
+ * List some posts.
+ *
+ * @param object|array A WP_Query instance, or a list of post objects
+ * @param array $args (optional)
+ */
+function p2p_list_posts( $posts, $args = array() ) {
+	if ( is_object( $posts ) )
+		$posts = $posts-&gt;posts;
+
+	$args = wp_parse_args( $args, array(
+		'before_list' =&gt; '&lt;ul&gt;', 'after_list' =&gt; '&lt;/ul&gt;',
+		'before_item' =&gt; '&lt;li&gt;', 'after_item' =&gt; '&lt;/li&gt;',
+		'template' =&gt; false
+	) );
+
+	extract( $args, EXTR_SKIP );
+
+	if ( empty( $posts ) )
+		return;
+
+	echo $before_list;
+
+	foreach ( $posts as $post ) {
+		$GLOBALS['post'] = $post;
+
+		setup_postdata( $post );
+
+		echo $before_item;
+
+		if ( $template )
+			locate_template( $template, true, false );
+		else
+			echo html( 'a', array( 'href' =&gt; get_permalink( $post-&gt;ID ) ), get_the_title( $post-&gt;ID ) );
+
+		echo $after_item;
+	}
+
+	echo $after_list;
+
+	wp_reset_postdata();
+}
+
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all()
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

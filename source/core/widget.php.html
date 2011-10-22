@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <script type="text/javascript" src="../../js/jquery-1.4.2.min.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shCore.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shBrushJScript.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shBrushPhp.js"></script>
+        <script type="text/javascript" src="../../syntax_highlighter/scripts/shBrushXml.js"></script>
+        <link href="../../syntax_highlighter/styles/shCore.css" rel="stylesheet" type="text/css" />
+        <link href="../../syntax_highlighter/styles/shCoreEclipse.css" rel="stylesheet" type="text/css" />
+        <link href="../../syntax_highlighter/styles/shThemeWordpress.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <pre class="brush: php">&lt;?php
+
+class P2P_Widget extends scbWidget {
+
+	protected $defaults = array(
+		'ctype' =&gt; false,
+	);
+
+	static function init( $file ) {
+		parent::init( __CLASS__, $file, 'p2p' );
+	}
+
+	function __construct() {
+		parent::__construct( 'p2p', __( 'Posts 2 Posts', P2P_TEXTDOMAIN ), array(
+			'description' =&gt; __( 'A list of posts connected to the current post', P2P_TEXTDOMAIN )
+		) );
+	}
+
+	function form( $instance ) {
+		if ( empty( $instance ) )
+			$instance = $this-&gt;defaults;
+
+		$ctypes = array_map( array( __CLASS__, 'ctype_label' ), P2P_Connection_Type::get() );
+
+		echo $this-&gt;input( array(
+			'type' =&gt; 'select',
+			'name' =&gt; 'ctype',
+			'values' =&gt; $ctypes,
+			'desc' =&gt; __( 'Connection type:', P2P_TEXTDOMAIN )
+		), $instance );
+	}
+
+	function widget( $args, $instance ) {
+		if ( !is_singular() )
+			return;
+
+		$ctype = P2P_Connection_Type::get_instance( $instance['ctype'] );
+		if ( !$ctype )
+			return;
+
+		$directed = $ctype-&gt;find_direction( get_queried_object_id() );
+		if ( !$directed )
+			return;
+
+		$connected = $directed-&gt;get_connected( get_queried_object_id() );
+		if ( !$connected-&gt;have_posts() )
+			return;
+
+		$title = $directed-&gt;get_title();
+
+		if ( empty( $title ) ) {
+			$ptype = get_post_type_object( $directed-&gt;get_other_post_type() );
+			$title = sprintf( __( 'Related %s', P2P_TEXTDOMAIN ), $ptype-&gt;label );
+		}
+
+		$title = apply_filters( 'widget_title', $title, $instance, $this-&gt;id_base );
+
+		extract( $args );
+
+		echo $before_widget;
+
+		if ( ! empty( $title ) )
+			echo $before_title . $title . $after_title;
+
+		p2p_list_posts( $connected );
+
+		echo $after_widget;
+	}
+
+	private static function ctype_label( $ctype ) {
+		foreach ( array( 'from', 'to' ) as $key ) {
+			$$key = implode( ', ', array_map( array( __CLASS__, 'post_type_label' ), $ctype-&gt;$key ) );
+		}
+
+		$directed = $ctype-&gt;find_direction( $ctype-&gt;from[0] );
+
+		if ( 'any' == $directed-&gt;get_direction() )
+			$arrow = '&amp;harr;';
+		else
+			$arrow = '&amp;rarr;';
+
+		$label = &quot;$from $arrow $to&quot;;
+
+		$title = $directed-&gt;get_title();
+
+		if ( $title )
+			$label .= &quot; ($title)&quot;;
+
+		return $label;
+	}
+
+	private static function post_type_label( $post_type ) {
+		$cpt = get_post_type_object( $post_type );
+		return $cpt ? $cpt-&gt;label : $post_type;
+	}
+}
+
+</pre>
+        <script type="text/javascript">
+             SyntaxHighlighter.all()
+             jQuery('.gutter div').each(function(key, data){
+                jQuery(data).prepend('<a name="L'+jQuery(data).text()+'"/>');
+             });
+        </script>
+    </body>
+</html>

@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Posts 2 Posts Reference</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
             $(document).ready(function() {
                 $(".filetree").treeview({
                     collapsed: true,
@@ -77,7 +77,8 @@
       });
 
       
-    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">core/api.php</h1>
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">core/api.php<a href="source/core/api.php.html"><img src="images/icons/view_source.png" border="0"></a>
+</h1>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
 <div id="file-nav-options">
               Show:
@@ -100,15 +101,19 @@
 <ul>
 <li><p>'id' - string A unique identifier for this connection type (optional).</p></li>
 <li><p>'from' - string|array The first end of the connection.</p></li>
+<li><p>'from_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
 <li><p>'to' - string|array The second end of the connection.</p></li>
-<li><p>'fields' - array( key => Title ) Metadata fields editable by the user (optional).</p></li>
-<li><p>'data' - array( key => value ) Metadata fields not editable by the user (optional).</p></li>
-<li><p>'sortable' - string A custom field key used to add a special column that allows manual connection ordering. Default: false.</p></li>
+<li><p>'to_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
+<li><p>'fields' - array( key => Title ) Metadata fields editable by the user. Default: none.</p></li>
+<li><p>'data' - array( key => value ) Metadata fields not editable by the user. Dfault: none.</p></li>
+<li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
+<li><p>'sortable' - string A custom field key used to add a special column that allows manual connection ordering. Default: false.</p></li>
 <li><p>'title' - string The box's title. Default: 'Connected {$post_type}s'</p></li>
-<li><p>'reciprocal' - bool Whether to show the box on both sides of the connection. Default: false.</p></li>
-<li><p>'show_ui' - bool Whether to show the admin connections box. Default: true.</p></li>
+<li><p>'indeterminate_direction' - string When the direction can't be decided, use this instead. Can be 'from', 'to' or 'any'. Default: 'any'.</p></li>
+<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'from'.</p></li>
 <li><p>'context' - string Where should the box show up by default. Possible values: 'advanced' or 'side'</p></li>
+<li><p>'can_create_post' - bool Whether to allow post creation via the connection box. Default: true.</p></li>
 </ul>
 </div>
 </div>
@@ -201,15 +206,19 @@
 <ul>
 <li><p>'id' - string A unique identifier for this connection type (optional).</p></li>
 <li><p>'from' - string|array The first end of the connection.</p></li>
+<li><p>'from_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
 <li><p>'to' - string|array The second end of the connection.</p></li>
-<li><p>'fields' - array( key => Title ) Metadata fields editable by the user (optional).</p></li>
-<li><p>'data' - array( key => value ) Metadata fields not editable by the user (optional).</p></li>
-<li><p>'sortable' - string A custom field key used to add a special column that allows manual connection ordering. Default: false.</p></li>
+<li><p>'to_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
+<li><p>'fields' - array( key => Title ) Metadata fields editable by the user. Default: none.</p></li>
+<li><p>'data' - array( key => value ) Metadata fields not editable by the user. Dfault: none.</p></li>
+<li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
+<li><p>'sortable' - string A custom field key used to add a special column that allows manual connection ordering. Default: false.</p></li>
 <li><p>'title' - string The box's title. Default: 'Connected {$post_type}s'</p></li>
-<li><p>'reciprocal' - bool Whether to show the box on both sides of the connection. Default: false.</p></li>
-<li><p>'show_ui' - bool Whether to show the admin connections box. Default: true.</p></li>
+<li><p>'indeterminate_direction' - string When the direction can't be decided, use this instead. Can be 'from', 'to' or 'any'. Default: 'any'.</p></li>
+<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'from'.</p></li>
 <li><p>'context' - string Where should the box show up by default. Possible values: 'advanced' or 'side'</p></li>
+<li><p>'can_create_post' - bool Whether to allow post creation via the connection box. Default: true.</p></li>
 </ul>
 </div>
 <strong>Parameters</strong><table class="argument-info">
