@@ -77,8 +77,7 @@
       });
 
       
-    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">core/api.php<a href="source/core/api.php.html"><img src="images/icons/view_source.png" border="0"></a>
-</h1>
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">core/api.php</h1>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
 <div id="file-nav-options">
               Show:
@@ -108,10 +107,10 @@
 <li><p>'data' - array( key => value ) Metadata fields not editable by the user. Dfault: none.</p></li>
 <li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
-<li><p>'sortable' - string A custom field key used to add a special column that allows manual connection ordering. Default: false.</p></li>
-<li><p>'title' - string The box's title. Default: 'Connected {$post_type}s'</p></li>
-<li><p>'indeterminate_direction' - string When the direction can't be decided, use this instead. Can be 'from', 'to' or 'any'. Default: 'any'.</p></li>
-<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'from'.</p></li>
+<li><p>'sortable' - bool|string Whether to allow connections to be ordered via drag-and-drop. Can be 'from', 'to', 'any' or false. Default: false.</p></li>
+<li><p>'title' - string|array The box's title. Default: 'Connected {$post_type}s'</p></li>
+<li><p>'reciprocal' - bool For indeterminate connections: True means all connections are displayed in a single box. False means 'from' connections are shown in one box and 'to' connections are shown in another box. Default: false.</p></li>
+<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'any'.</p></li>
 <li><p>'context' - string Where should the box show up by default. Possible values: 'advanced' or 'side'</p></li>
 <li><p>'can_create_post' - bool Whether to allow post creation via the connection box. Default: true.</p></li>
 </ul>
@@ -213,10 +212,10 @@
 <li><p>'data' - array( key => value ) Metadata fields not editable by the user. Dfault: none.</p></li>
 <li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
-<li><p>'sortable' - string A custom field key used to add a special column that allows manual connection ordering. Default: false.</p></li>
-<li><p>'title' - string The box's title. Default: 'Connected {$post_type}s'</p></li>
-<li><p>'indeterminate_direction' - string When the direction can't be decided, use this instead. Can be 'from', 'to' or 'any'. Default: 'any'.</p></li>
-<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'from'.</p></li>
+<li><p>'sortable' - bool|string Whether to allow connections to be ordered via drag-and-drop. Can be 'from', 'to', 'any' or false. Default: false.</p></li>
+<li><p>'title' - string|array The box's title. Default: 'Connected {$post_type}s'</p></li>
+<li><p>'reciprocal' - bool For indeterminate connections: True means all connections are displayed in a single box. False means 'from' connections are shown in one box and 'to' connections are shown in another box. Default: false.</p></li>
+<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'any'.</p></li>
 <li><p>'context' - string Where should the box show up by default. Possible values: 'advanced' or 'side'</p></li>
 <li><p>'can_create_post' - bool Whether to allow post creation via the connection box. Default: true.</p></li>
 </ul>
