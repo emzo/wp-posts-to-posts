@@ -98,20 +98,20 @@
 <p>Takes the following parameters, as an associative array:</p>
 
 <ul>
-<li><p>'id' - string A unique identifier for this connection type (optional).</p></li>
+<li><p>'name' - string A unique identifier for this connection type.</p></li>
 <li><p>'from' - string|array The first end of the connection.</p></li>
 <li><p>'from_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
 <li><p>'to' - string|array The second end of the connection.</p></li>
 <li><p>'to_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
 <li><p>'fields' - array( key => Title ) Metadata fields editable by the user. Default: none.</p></li>
-<li><p>'data' - array( key => value ) Metadata fields not editable by the user. Dfault: none.</p></li>
 <li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
 <li><p>'sortable' - bool|string Whether to allow connections to be ordered via drag-and-drop. Can be 'from', 'to', 'any' or false. Default: false.</p></li>
 <li><p>'title' - string|array The box's title. Default: 'Connected {$post_type}s'</p></li>
+<li><p>'from_labels' - array Additional labels for the admin box (optional)</p></li>
+<li><p>'to_labels' - array Additional labels for the admin box (optional)</p></li>
 <li><p>'reciprocal' - bool For indeterminate connections: True means all connections are displayed in a single box. False means 'from' connections are shown in one box and 'to' connections are shown in another box. Default: false.</p></li>
-<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'any'.</p></li>
-<li><p>'context' - string Where should the box show up by default. Possible values: 'advanced' or 'side'</p></li>
+<li><p>'admin_box' - bool|string|array Whether and where to show the admin connections box.</p></li>
 <li><p>'can_create_post' - bool Whether to allow post creation via the connection box. Default: true.</p></li>
 </ul>
 </div>
@@ -122,13 +122,135 @@
 </dd>bool|object</dl>
 <a name="functions" class="anchor"></a><h2>Functions</h2>
 <div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_add_meta()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_add_meta</span><span class="nb-faded-text">(
+           $p2p_id,  $key,  $value,  $unique
+              =
+              false
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_id</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$key</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$value</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$unique</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_connection_exists()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_connection_exists</span><span class="nb-faded-text">(
+          string $p2p_type, array $args
+              =
+              array()
+          )
+        </span>
+        :
+          bool</code><div class="description"><p class="short_description">Check if a certain connection exists.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_type</th>
+<td>string</td>
+<td><em><p>A valid connection type.</p></em></td>
+</tr>
+<tr>
+<th>$args</th>
+<td>array</td>
+<td><em><p>Query args.</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>bool</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_create_connection()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_create_connection</span><span class="nb-faded-text">(
+          int $p2p_type, array $args
+          )
+        </span>
+        :
+          bool|int</code><div class="description"><p class="short_description">Create a connection.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_type</th>
+<td>int</td>
+<td><em><p>A valid connection type.</p></em></td>
+</tr>
+<tr>
+<th>$args</th>
+<td>array</td>
+<td><em><p>Connection information.</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>bool|int</td>
+<td>False on failure, p2p_id on success.</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
 <a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_delete_connection()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_delete_connection</span><span class="nb-faded-text">(
           int|array $p2p_id
           )
         </span>
         :
-          int</code><div class="description"><p class="short_description">Delete one or more connections.</p></div>
+          int</code><div class="description"><p class="short_description">Delete connections using p2p_ids.</p></div>
 <div class="code-tabs">
 <div class="long-description">
 </div>
@@ -152,6 +274,197 @@
 <tr>
 <td>int</td>
 <td>Number of connections deleted</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_delete_connections()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_delete_connections</span><span class="nb-faded-text">(
+          int $p2p_type, array $args
+              =
+              array()
+          )
+        </span>
+        :
+          int</code><div class="description"><p class="short_description">Delete one or more connections.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_type</th>
+<td>int</td>
+<td><em><p>A valid connection type.</p></em></td>
+</tr>
+<tr>
+<th>$args</th>
+<td>array</td>
+<td><em><p>Connection information.</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>int</td>
+<td>Number of connections deleted</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_delete_meta()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_delete_meta</span><span class="nb-faded-text">(
+           $p2p_id,  $key,  $value
+              =
+              ''
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_id</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$key</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$value</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_get_connection()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_get_connection</span><span class="nb-faded-text">(
+          int $p2p_id
+          )
+        </span>
+        :
+          object</code><div class="description"><p class="short_description">Retrieve a single connection.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_id</th>
+<td>int</td>
+<td><em><p>The connection id.</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>object</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_get_connections()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_get_connections</span><span class="nb-faded-text">(
+          string $p2p_type, array $args
+              =
+              array()
+          )
+        </span>
+        :
+          array</code><div class="description"><p class="short_description">Retrieve connections.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_type</th>
+<td>string</td>
+<td><em><p>A valid connection type.</p></em></td>
+</tr>
+<tr>
+<th>$args</th>
+<td>array</td>
+<td><em><p>Query args.</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>array</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_get_meta()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_get_meta</span><span class="nb-faded-text">(
+           $p2p_id,  $key
+              =
+              '',  $single
+              =
+              false
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_id</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$key</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$single</th>
+<td></td>
+<td><em></em></td>
 </tr>
 </table>
 </div>
@@ -203,20 +516,20 @@
 <p>Takes the following parameters, as an associative array:</p>
 
 <ul>
-<li><p>'id' - string A unique identifier for this connection type (optional).</p></li>
+<li><p>'name' - string A unique identifier for this connection type.</p></li>
 <li><p>'from' - string|array The first end of the connection.</p></li>
 <li><p>'from_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
 <li><p>'to' - string|array The second end of the connection.</p></li>
 <li><p>'to_query_vars' - array Additional query vars to pass to WP_Query. Default: none.</p></li>
 <li><p>'fields' - array( key => Title ) Metadata fields editable by the user. Default: none.</p></li>
-<li><p>'data' - array( key => value ) Metadata fields not editable by the user. Dfault: none.</p></li>
 <li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
 <li><p>'sortable' - bool|string Whether to allow connections to be ordered via drag-and-drop. Can be 'from', 'to', 'any' or false. Default: false.</p></li>
 <li><p>'title' - string|array The box's title. Default: 'Connected {$post_type}s'</p></li>
+<li><p>'from_labels' - array Additional labels for the admin box (optional)</p></li>
+<li><p>'to_labels' - array Additional labels for the admin box (optional)</p></li>
 <li><p>'reciprocal' - bool For indeterminate connections: True means all connections are displayed in a single box. False means 'from' connections are shown in one box and 'to' connections are shown in another box. Default: false.</p></li>
-<li><p>'show_ui' - bool|string Whether to show the admin connections box. Can be 'from', 'to', 'any' or false. Default: 'any'.</p></li>
-<li><p>'context' - string Where should the box show up by default. Possible values: 'advanced' or 'side'</p></li>
+<li><p>'admin_box' - bool|string|array Whether and where to show the admin connections box.</p></li>
 <li><p>'can_create_post' - bool Whether to allow post creation via the connection box. Default: true.</p></li>
 </ul>
 </div>
@@ -245,39 +558,9 @@
 </div>
 <div class="clear"></div>
 </div>
-<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_split_posts()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_split_posts</span><span class="nb-faded-text">(
-          object|array $posts, string $key
-          )
-        </span>
-        :
-          void</code><div class="description"><p class="short_description">Split some posts based on a certain connection field.</p></div>
-<div class="code-tabs">
-<div class="long-description">
-</div>
-<strong>Parameters</strong><table class="argument-info">
-<thead><tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tr>
-<th>$posts</th>
-<td>object|array</td>
-<td><em><p>A WP_Query instance, or a list of post objects</p></em></td>
-</tr>
-<tr>
-<th>$key</th>
-<td>string</td>
-<td><em><p>p2pmeta key</p></em></td>
-</tr>
-</table>
-</div>
-<div class="clear"></div>
-</div>
 <a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_type()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_type</span><span class="nb-faded-text">(
-          string $id
+          string $p2p_type
           )
         </span>
         :
@@ -292,9 +575,9 @@
 <th>Description</th>
 </tr></thead>
 <tr>
-<th>$id</th>
+<th>$p2p_type</th>
 <td>string</td>
-<td><em><p>Connection type id</p></em></td>
+<td><em></em></td>
 </tr>
 </table>
 <strong>Returns</strong><table class="argument-info">
@@ -305,6 +588,46 @@
 <tr>
 <td>bool|object</td>
 <td>False if connection type not found, P2P_Connection_Type instance on success.</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::p2p_update_meta()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">p2p_update_meta</span><span class="nb-faded-text">(
+           $p2p_id,  $key,  $value,  $prev_value
+              =
+              ''
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_id</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$key</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$value</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$prev_value</th>
+<td></td>
+<td><em></em></td>
 </tr>
 </table>
 </div>
