@@ -1,0 +1,988 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">scb/Forms.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav"><li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul>
+<li><a href="#%5CscbForm">\scbForm</a></li>
+<li><a href="#%5CscbForms">\scbForms</a></li>
+</ul>
+</li></ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\scbForm" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\scbForm<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Core</small><p class="short-description">A wrapper for scbForms, containing the formdata</p>
+<div class="long-description">
+</div>
+<dl class="class-info"></dl>
+<h3>Properties</h3>
+<div>
+<a id="\scbForm::$data" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$data</span>= 'array()'
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForm::$prefix" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$prefix</span>= 'array()'
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\scbForm::__construct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+           $data,  $prefix
+              =
+              false
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$data</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$prefix</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForm::input()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">input</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForm::traverse_to()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">traverse_to</span><span class="nb-faded-text">(
+           $path
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$path</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\scbForms" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\scbForms<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Core</small><dl class="class-info"></dl>
+<h3>Constants</h3>
+<div>
+<a id="\scbForms::TOKEN" class="anchor"></a><div class="constant publicC">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/constant.png" alt="Constant"> 
+                <span class="highlight">TOKEN</span>
+                = '%input%'</code><div class="description"></div>
+<div class="code-tabs"><dl class="constant-info"></dl></div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Properties</h3>
+<div>
+<a id="\scbForms::$cur_name" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$cur_name</span>= ''
+                </code><div class="description"><span class="attribute">static</span></div>
+<div class="code-tabs">
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\scbForms::_checkbox()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_checkbox</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::_expand_values()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_expand_values</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::_input()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_input</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::_input_gen()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_input_gen</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::_multiple_choice()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_multiple_choice</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::_radio()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_radio</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::_select()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_select</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::_single_choice()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">_single_choice</span><span class="nb-faded-text">(
+           $args
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::add_desc()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">add_desc</span><span class="nb-faded-text">(
+           $input,  $desc,  $desc_pos
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$input</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$desc</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$desc_pos</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::add_label()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">add_label</span><span class="nb-faded-text">(
+           $input,  $desc,  $desc_pos
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$input</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$desc</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$desc_pos</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::form()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">form</span><span class="nb-faded-text">(
+           $inputs,  $formdata
+              =
+              NULL,  $nonce
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$inputs</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$formdata</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$nonce</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::form_table()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">form_table</span><span class="nb-faded-text">(
+           $rows,  $formdata
+              =
+              NULL
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$rows</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$formdata</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::form_table_wrap()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">form_table_wrap</span><span class="nb-faded-text">(
+           $content,  $nonce
+              =
+              'update_options'
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$content</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$nonce</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::form_wrap()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">form_wrap</span><span class="nb-faded-text">(
+           $content,  $nonce
+              =
+              'update_options'
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$content</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$nonce</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::get_name()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_name</span><span class="nb-faded-text">(
+          array|string $name
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Generates the proper string for a name attribute.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>array|string</td>
+<td><em><p>The raw name</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::get_value()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_value</span><span class="nb-faded-text">(
+          array|string $name, array $value, mixed $fallback
+              =
+              null
+          )
+        </span>
+        :
+          mixed</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Traverses the formdata and retrieves the correct value.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$name</th>
+<td>array|string</td>
+<td><em><p>The name of the value</p></em></td>
+</tr>
+<tr>
+<th>$value</th>
+<td>array</td>
+<td><em><p>The data that will be traversed</p></em></td>
+</tr>
+<tr>
+<th>$fallback</th>
+<td>mixed</td>
+<td><em><p>The value returned when the key is not found</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>mixed</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::input()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">input</span><span class="nb-faded-text">(
+           $args,  $formdata
+              =
+              false
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$formdata</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::is_associative()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">is_associative</span><span class="nb-faded-text">(
+           $array
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$array</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::row_wrap()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">row_wrap</span><span class="nb-faded-text">(
+           $title,  $content
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$title</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$content</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::set_value()" class="anchor"></a><div class="method private">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">set_value</span><span class="nb-faded-text">(
+           $arr,  $name,  $value
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$arr</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$name</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$value</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::table()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">table</span><span class="nb-faded-text">(
+           $rows,  $formdata
+              =
+              NULL
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$rows</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$formdata</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::table_row()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">table_row</span><span class="nb-faded-text">(
+           $args,  $formdata
+              =
+              NULL
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$args</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$formdata</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::table_wrap()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">table_wrap</span><span class="nb-faded-text">(
+           $content
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$content</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\scbForms::validate_post_data()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">validate_post_data</span><span class="nb-faded-text">(
+          array $fields
+          )
+        </span>
+        :
+          array</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Given a list of fields, extract the appropriate POST data and return it.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$fields</th>
+<td>array</td>
+<td><em><p>List of args that would be sent to scbForms::input()</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>array</td>
+<td></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.15.1</a>.
+    </small></body></html>

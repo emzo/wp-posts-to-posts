@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Posts 2 Posts Reference</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
             $(document).ready(function() {
                 $(".filetree").treeview({
                     collapsed: true,
@@ -77,7 +77,7 @@
       });
 
       
-    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">core/query.php</h1>
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">query.php</h1>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
 <div id="file-nav-options">
               Show:
@@ -134,44 +134,9 @@
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Query::choose_side()" class="anchor"></a><div class="method private">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">choose_side</span><span class="nb-faded-text">(
-           $current,  $from,  $to
-          )
-        </span>
-        :
-          void</code><div class="description">
-<span class="attribute">static</span><p class="short_description"></p>
-</div>
-<div class="code-tabs">
-<strong>Parameters</strong><table class="argument-info">
-<thead><tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tr>
-<th>$current</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
-<th>$from</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
-<th>$to</th>
-<td></td>
-<td><em></em></td>
-</tr>
-</table>
-</div>
-<div class="clear"></div>
-</div>
-<a id="\P2P_Query::expand_shortcut_qv()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">expand_shortcut_qv</span><span class="nb-faded-text">(
-           $q
+<a id="\P2P_Query::expand_connected_type()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">expand_connected_type</span><span class="nb-faded-text">(
+           $q,  $object_type
           )
         </span>
         :
@@ -188,13 +153,18 @@
 <td></td>
 <td><em></em></td>
 </tr>
+<tr>
+<th>$object_type</th>
+<td></td>
+<td><em></em></td>
+</tr>
 </table>
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Query::find_direction()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">find_direction</span><span class="nb-faded-text">(
-           $ctype,  $arg,  $object_type
+<a id="\P2P_Query::expand_shortcut_qv()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">expand_shortcut_qv</span><span class="nb-faded-text">(
+           $q
           )
         </span>
         :
@@ -207,17 +177,7 @@
 <th>Description</th>
 </tr></thead>
 <tr>
-<th>$ctype</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
-<th>$arg</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
-<th>$object_type</th>
+<th>$q</th>
 <td></td>
 <td><em></em></td>
 </tr>
@@ -241,6 +201,34 @@
 </tr></thead>
 <tr>
 <th>$q</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Query::handle_qv()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">handle_qv</span><span class="nb-faded-text">(
+           $q,  $object_type
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$q</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$object_type</th>
 <td></td>
 <td><em></em></td>
 </tr>

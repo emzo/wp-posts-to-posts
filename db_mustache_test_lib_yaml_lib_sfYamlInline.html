@@ -1,0 +1,486 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">mustache/test/lib/yaml/lib/sfYamlInline.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav"><li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul><li><a href="#%5CsfYamlInline">\sfYamlInline</a></li></ul>
+</li></ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\sfYamlInline" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\sfYamlInline<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>symfony\yaml</small><p class="short-description">sfYamlInline implements a YAML parser/dumper for the YAML inline syntax.</p>
+<div class="long-description">
+</div>
+<dl class="class-info">
+<dt>Author</dt>
+<dd>
+<a href="mailto:fabien.potencier@symfony-project.com">Fabien Potencier</a>
+         
+    </dd>
+<dt>Version</dt>
+<dd>SVN: $Id: sfYamlInline.class.php 16177 2009-03-11 08:32:48Z fabien $
+         
+    </dd>
+</dl>
+<h3>Constants</h3>
+<div>
+<a id="\sfYamlInline::REGEX_QUOTED_STRING" class="anchor"></a><div class="constant publicC">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/constant.png" alt="Constant"> 
+                <span class="highlight">REGEX_QUOTED_STRING</span>
+                = '(?:"([^"\\\\]*(?:\\\\.[^"\\\\]*)*)"|\'([^\']*(?:\'\'[^\']*)*)\')'</code><div class="description"></div>
+<div class="code-tabs"><dl class="constant-info"></dl></div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\sfYamlInline::dump()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">dump</span><span class="nb-faded-text">(
+          mixed $value
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Dumps a given PHP variable to a YAML string.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$value</th>
+<td>mixed</td>
+<td><em><p>The PHP variable to convert</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>The YAML string representing the PHP array</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::dumpArray()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">dumpArray</span><span class="nb-faded-text">(
+          array $value
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Dumps a PHP array to a YAML string.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$value</th>
+<td>array</td>
+<td><em><p>The PHP array to dump</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>The YAML string representing the PHP array</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::evaluateScalar()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">evaluateScalar</span><span class="nb-faded-text">(
+          string $scalar
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Evaluates scalars and replaces magic values.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$scalar</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>A YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::getTimestampRegex()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">getTimestampRegex</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">static</span><p class="short_description"></p>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::load()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">load</span><span class="nb-faded-text">(
+          string $value
+          )
+        </span>
+        :
+          array</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Convert a YAML string to a PHP array.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$value</th>
+<td>string</td>
+<td><em><p>A YAML string</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>array</td>
+<td>A PHP array representing the YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::parseMapping()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">parseMapping</span><span class="nb-faded-text">(
+          string $mapping, integer $i
+              =
+              0
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Parses a mapping to a YAML string.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$mapping</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$i</th>
+<td>integer</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>A YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::parseQuotedScalar()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">parseQuotedScalar</span><span class="nb-faded-text">(
+          string $scalar, integer $i
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Parses a quoted scalar to YAML.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$scalar</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$i</th>
+<td>integer</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>A YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::parseScalar()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">parseScalar</span><span class="nb-faded-text">(
+          \scalar $scalar, string $delimiters
+              =
+              null,  $stringDelimiters
+              =
+              array('"', integer $i
+              =
+              0, boolean $evaluate
+              =
+              true
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Parses a scalar to a YAML string.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$scalar</th>
+<td>\scalar</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$delimiters</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$stringDelimiters</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$i</th>
+<td>integer</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$evaluate</th>
+<td>boolean</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>A YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlInline::parseSequence()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">parseSequence</span><span class="nb-faded-text">(
+          string $sequence, integer $i
+              =
+              0
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">static</span><p class="short_description">Parses a sequence to a YAML string.</p>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$sequence</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$i</th>
+<td>integer</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>A YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.15.1</a>.
+    </small></body></html>

@@ -92,6 +92,7 @@
 <li><a href="#%5CP2P_Field_Delete">\P2P_Field_Delete</a></li>
 <li><a href="#%5CP2P_Field_Generic">\P2P_Field_Generic</a></li>
 <li><a href="#%5CP2P_Field_Order">\P2P_Field_Order</a></li>
+<li><a href="#%5CP2P_Field_Title_Attachment">\P2P_Field_Title_Attachment</a></li>
 <li><a href="#%5CP2P_Field_Title_Post">\P2P_Field_Title_Post</a></li>
 <li><a href="#%5CP2P_Field_Title_User">\P2P_Field_Title_User</a></li>
 </ul>
@@ -137,7 +138,7 @@
 </div>
 <a id="\P2P_Field_Create::render()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
-           $key,  $p2p_id,  $post_id
+           $p2p_id,  $post_id
           )
         </span>
         :
@@ -149,11 +150,6 @@
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
-<tr>
-<th>$key</th>
-<td></td>
-<td><em></em></td>
-</tr>
 <tr>
 <th>$p2p_id</th>
 <td></td>
@@ -194,7 +190,7 @@
 </div>
 <a id="\P2P_Field_Delete::render()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
-           $key,  $p2p_id,  $post_id
+           $p2p_id,  $post_id
           )
         </span>
         :
@@ -206,11 +202,6 @@
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
-<tr>
-<th>$key</th>
-<td></td>
-<td><em></em></td>
-</tr>
 <tr>
 <th>$p2p_id</th>
 <td></td>
@@ -251,12 +242,24 @@
 </div>
 <div class="clear"></div>
 </div>
+<a id="\P2P_Field_Generic::$key" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$key</span>= ''
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
 </div>
 <h3>Methods</h3>
 <div>
 <a id="\P2P_Field_Generic::__construct()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
-           $data
+           $key,  $data
           )
         </span>
         :
@@ -268,6 +271,11 @@
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
+<tr>
+<th>$key</th>
+<td></td>
+<td><em></em></td>
+</tr>
 <tr>
 <th>$data</th>
 <td></td>
@@ -289,7 +297,7 @@
 </div>
 <a id="\P2P_Field_Generic::render()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
-           $key,  $p2p_id,  $post_id
+           $p2p_id,  $post_id
           )
         </span>
         :
@@ -301,11 +309,6 @@
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
-<tr>
-<th>$key</th>
-<td></td>
-<td><em></em></td>
-</tr>
 <tr>
 <th>$p2p_id</th>
 <td></td>
@@ -384,7 +387,7 @@
 </div>
 <a id="\P2P_Field_Order::render()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
-           $key,  $p2p_id,  $post_id
+           $p2p_id,  $post_id
           )
         </span>
         :
@@ -397,17 +400,120 @@
 <th>Description</th>
 </tr></thead>
 <tr>
-<th>$key</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
 <th>$p2p_id</th>
 <td></td>
 <td><em></em></td>
 </tr>
 <tr>
 <th>$post_id</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\P2P_Field_Title_Attachment" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\P2P_Field_Title_Attachment<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Administration</small><p class="short-description"></p>
+<div class="long-description">
+</div>
+<dl class="class-info">
+<dt>Parent(s)</dt>
+<dd><a href="db_admin_fields.html#%5CP2P_Field_Title_Post">\P2P_Field_Title_Post</a></dd>
+</dl>
+<h3>Properties</h3>
+<div>
+<a id="\P2P_Field_Title_Attachment::$title" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$title</span>= ''
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_admin_fields.html#%5CP2P_Field_Title_Post::%24title">\P2P_Field_Title_Post::$title</a></small>
+</div>
+<div class="code-tabs">
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_admin_fields.html#%5CP2P_Field_Title_Post::%24title">\P2P_Field_Title_Post::$title</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\P2P_Field_Title_Attachment::__construct()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+           $title
+              =
+              ''
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description"></p>
+<small>Inherited from:
+                    <a href="db_admin_fields.html#%5CP2P_Field_Title_Post::__construct()">\P2P_Field_Title_Post::__construct()</a></small>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$title</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Field_Title_Attachment::get_title()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_title</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description"></p>
+<small>Inherited from:
+                    <a href="db_admin_fields.html#%5CP2P_Field_Title_Post::get_title()">\P2P_Field_Title_Post::get_title()</a></small>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Field_Title_Attachment::render()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
+           $p2p_id,  $attachment_id
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$p2p_id</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$attachment_id</th>
 <td></td>
 <td><em></em></td>
 </tr>
@@ -427,6 +533,7 @@
 <dt>Implements</dt>
 <dd><a href="db_admin_box.html#%5CP2P_Field">\P2P_Field</a></dd>
 <dt>Children</dt>
+<dd><a href="db_admin_fields.html#%5CP2P_Field_Title_Attachment">\P2P_Field_Title_Attachment</a></dd>
 <dd><a href="db_admin_fields.html#%5CP2P_Field_Title_User">\P2P_Field_Title_User</a></dd>
 </dl>
 <h3>Properties</h3>
@@ -483,7 +590,7 @@
 </div>
 <a id="\P2P_Field_Title_Post::render()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
-           $key,  $p2p_id,  $post_id
+           $p2p_id,  $post_id
           )
         </span>
         :
@@ -495,11 +602,6 @@
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
-<tr>
-<th>$key</th>
-<td></td>
-<td><em></em></td>
-</tr>
 <tr>
 <th>$p2p_id</th>
 <td></td>
@@ -519,7 +621,7 @@
 <a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\P2P_Field_Title_User" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\P2P_Field_Title_User<div class="to-top"><a href="#top">jump to top</a></div>
 </h2>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
-<small class="package"><b>Package: </b>Core</small><p class="short-description"></p>
+<small class="package"><b>Package: </b>Administration</small><p class="short-description"></p>
 <div class="long-description">
 </div>
 <dl class="class-info">
@@ -619,7 +721,7 @@
 </div>
 <a id="\P2P_Field_Title_User::render()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
-           $key,  $p2p_id,  $user_id
+           $p2p_id,  $user_id
           )
         </span>
         :
@@ -631,11 +733,6 @@
 <th>Type</th>
 <th>Description</th>
 </tr></thead>
-<tr>
-<th>$key</th>
-<td></td>
-<td><em></em></td>
-</tr>
 <tr>
 <th>$p2p_id</th>
 <td></td>

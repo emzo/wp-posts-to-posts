@@ -1,0 +1,1854 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">mustache/examples/child_context/ChildContext.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav"><li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul><li><a href="#%5CChildContext">\ChildContext</a></li></ul>
+</li></ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\ChildContext" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\ChildContext<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>Core</small><p class="short-description">A Mustache implementation in PHP.</p>
+<div class="long-description"><p>{@link http://defunkt.github.com/mustache}</p>
+
+<p>Mustache is a framework-agnostic logic-less templating language. It enforces separation of view
+logic from template files. In fact, it is not even possible to embed logic in the template.</p>
+
+<p>This is very, very rad.</p>
+</div>
+<dl class="class-info">
+<dt>Parent(s)</dt>
+<dd><a href="db_mustache_Mustache.html#%5CMustache">\Mustache</a></dd>
+<dt>Author</dt>
+<dd>Justin Hileman {@link http://justinhileman.com}
+         
+    </dd>
+</dl>
+<h3>Properties</h3>
+<div>
+<a id="\ChildContext::$_charset" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_charset</span>= ''UTF-8''
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_charset">\Mustache::$_charset</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>'UTF-8'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_charset">\Mustache::$_charset</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_context" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_context</span>= 'array()'
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_context">\Mustache::$_context</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_context">\Mustache::$_context</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_ctag" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_ctag</span>= ''}}''
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_ctag">\Mustache::$_ctag</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>'}}'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_ctag">\Mustache::$_ctag</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_localPragmas" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_localPragmas</span>= 'array()'
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_localPragmas">\Mustache::$_localPragmas</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_localPragmas">\Mustache::$_localPragmas</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_otag" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_otag</span>= ''{{''
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_otag">\Mustache::$_otag</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>'{{'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_otag">\Mustache::$_otag</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_partials" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_partials</span>= 'array()'
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_partials">\Mustache::$_partials</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_partials">\Mustache::$_partials</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_pragmas" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_pragmas</span>= 'array()'
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_pragmas">\Mustache::$_pragmas</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_pragmas">\Mustache::$_pragmas</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_pragmasImplemented" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_pragmasImplemented</span>= 'array(
+		self::PRAGMA_UNESCAPED
+	)'
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_pragmasImplemented">\Mustache::$_pragmasImplemented</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array(
+		self::PRAGMA_UNESCAPED
+	)</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_pragmasImplemented">\Mustache::$_pragmasImplemented</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_tagRegEx" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_tagRegEx</span>= ''
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_tagRegEx">\Mustache::$_tagRegEx</a></small>
+</div>
+<div class="code-tabs">
+<strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_tagRegEx">\Mustache::$_tagRegEx</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_template" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_template</span>= ''''
+                </code><div class="description">
+<span class="attribute">inherited</span><small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_template">\Mustache::$_template</a></small>
+</div>
+<div class="code-tabs">
+<strong>Default value</strong><code>''</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_template">\Mustache::$_template</a>
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$_throwsExceptions" class="anchor"></a><div class="property protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$_throwsExceptions</span>= 'array(
+		MustacheException::UNKNOWN_VARIABLE         =&gt; false'
+                </code><div class="description">
+<span class="attribute">inherited</span><p class="short-description">Should this Mustache throw exceptions when it finds unexpected tags?</p>
+<small>Inherited from:
+                        <a href="db_mustache_Mustache.html#%5CMustache::%24_throwsExceptions">\Mustache::$_throwsExceptions</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Default value</strong><code>array(
+		MustacheException::UNKNOWN_VARIABLE         =&gt; false</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+<dt>Inherited_from</dt>
+<dd>
+<a href="db_mustache_Mustache.html#%5CMustache::%24_throwsExceptions">\Mustache::$_throwsExceptions</a>
+         
+    </dd>
+<dt>See</dt>
+<dd>\self::_throwsException()
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$grandparent" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$grandparent</span>= 'array(
+		'parent' =&gt; array(
+			'child' =&gt; 'grandchild works''
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array(
+		'parent' =&gt; array(
+			'child' =&gt; 'grandchild works'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::$parent" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$parent</span>= 'array(
+		'child' =&gt; 'child works''
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array(
+		'child' =&gt; 'child works'</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\ChildContext::__clone()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__clone</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Mustache class clone method.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::__clone()">\Mustache::__clone()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>A cloned Mustache instance should have pragmas, delimeters and root context
+reset to default values.</p>
+</div>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>public
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::__construct()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+          string $template
+              =
+              null, mixed $view
+              =
+              null, array $partials
+              =
+              null, array $options
+              =
+              null
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Mustache class constructor.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::__construct()">\Mustache::__construct()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>This method accepts a $template string and a $view object. Optionally, pass an associative
+array of partials as well.</p>
+
+<p>Passing an $options array allows overriding certain Mustache options during instantiation:</p>
+
+<pre><code>$options = array(
+    // `charset` -- must be supported by `htmlspecialentities()`. defaults to 'UTF-8'
+    'charset' =&gt; 'ISO-8859-1',
+
+    // opening and closing delimiters, as an array or a space-separated string
+    'delimiters' =&gt; '&lt;% %&gt;',
+
+    // an array of pragmas to enable
+    'pragmas' =&gt; array(
+        Mustache::PRAGMA_UNESCAPED
+    ),
+);
+</code></pre>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$template</th>
+<td>string</td>
+<td><em><p>(default: null)</p>
+</em></td>
+</tr>
+<tr>
+<th>$view</th>
+<td>mixed</td>
+<td><em><p>(default: null)</p>
+</em></td>
+</tr>
+<tr>
+<th>$partials</th>
+<td>array</td>
+<td><em><p>(default: null)</p>
+</em></td>
+</tr>
+<tr>
+<th>$options</th>
+<td>array</td>
+<td><em><p>(default: array())</p>
+</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>public
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::__toString()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__toString</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Wrap the render() function for string conversion.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::__toString()">\Mustache::__toString()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>public
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_changeDelimiter()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_changeDelimiter</span><span class="nb-faded-text">(
+          string $tag_name, string $leading, string $trailing
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Change the Mustache tag delimiter. This method also replaces this object's current
+tag RegEx with one using the new delimiters.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_changeDelimiter()">\Mustache::_changeDelimiter()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$leading</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+<tr>
+<th>$trailing</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_findSection()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_findSection</span><span class="nb-faded-text">(
+          string $template
+          )
+        </span>
+        :
+          array</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Extract the first section from $template.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_findSection()">\Mustache::_findSection()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$template</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>array</td>
+<td>$before, $type, $tag_name, $content and $after</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_findVariableInContext()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_findVariableInContext</span><span class="nb-faded-text">(
+          string $tag_name, array $context
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Get a variable from the context array. Internal helper used by getVariable() to abstract
+variable traversal for dot notation.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_findVariableInContext()">\Mustache::_findVariableInContext()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$context</th>
+<td>array</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Throws</strong><table class="argument-info">
+<thead><tr>
+<th>Exception</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td><a href="db_mustache_Mustache.html#%5CMustacheException">\MustacheException</a></td>
+<td><em>Unknown variable name.</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_getPartial()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_getPartial</span><span class="nb-faded-text">(
+          string $tag_name
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Retrieve the partial corresponding to the requested tag name.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_getPartial()">\Mustache::_getPartial()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Silently fails (i.e. returns '') when the requested partial is not found.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Throws</strong><table class="argument-info">
+<thead><tr>
+<th>Exception</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td><a href="db_mustache_Mustache.html#%5CMustacheException">\MustacheException</a></td>
+<td><em>Unknown partial name.</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_getPragmaOptions()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_getPragmaOptions</span><span class="nb-faded-text">(
+          string $pragma_name
+          )
+        </span>
+        :
+          mixed</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Return pragma options, if any.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_getPragmaOptions()">\Mustache::_getPragmaOptions()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$pragma_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>mixed</td>
+<td></td>
+</tr>
+</table>
+<strong>Throws</strong><table class="argument-info">
+<thead><tr>
+<th>Exception</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td><a href="db_mustache_Mustache.html#%5CMustacheException">\MustacheException</a></td>
+<td><em>Unknown pragma</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_getVariable()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_getVariable</span><span class="nb-faded-text">(
+          string $tag_name
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Get a variable from the context array.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_getVariable()">\Mustache::_getVariable()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>If the view is an array, returns the value with array key $tag_name.
+If the view is an object, this will check for a public member variable
+named $tag_name. If none is available, this method will execute and return
+any class method named $tag_name. Failing all of the above, this method will
+return an empty string.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Throws</strong><table class="argument-info">
+<thead><tr>
+<th>Exception</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td><a href="db_mustache_Mustache.html#%5CMustacheException">\MustacheException</a></td>
+<td><em>Unknown variable name.</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_hasPragma()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_hasPragma</span><span class="nb-faded-text">(
+          string $pragma_name
+          )
+        </span>
+        :
+          bool</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Check whether this Mustache has a specific pragma.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_hasPragma()">\Mustache::_hasPragma()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$pragma_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>bool</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_popContext()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_popContext</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Remove the latest context from the stack.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_popContext()">\Mustache::_popContext()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_preparePragmaRegEx()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_preparePragmaRegEx</span><span class="nb-faded-text">(
+          string $otag, string $ctag
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Prepare a pragma RegEx for the given opening/closing tags.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_preparePragmaRegEx()">\Mustache::_preparePragmaRegEx()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$otag</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$ctag</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_prepareSectionRegEx()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_prepareSectionRegEx</span><span class="nb-faded-text">(
+          string $otag, string $ctag
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Prepare a section RegEx string for the given opening/closing tags.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_prepareSectionRegEx()">\Mustache::_prepareSectionRegEx()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$otag</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$ctag</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_prepareTagRegEx()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_prepareTagRegEx</span><span class="nb-faded-text">(
+          string $otag, string $ctag,  $first
+              =
+              false
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Prepare a tag RegEx for the given opening/closing tags.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_prepareTagRegEx()">\Mustache::_prepareTagRegEx()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$otag</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$ctag</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$first</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_pushContext()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_pushContext</span><span class="nb-faded-text">(
+          array $local_context
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Push a local context onto the stack.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_pushContext()">\Mustache::_pushContext()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$local_context</th>
+<td>array</td>
+<td><em><p>&$local_context</p>
+</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderComment()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderComment</span><span class="nb-faded-text">(
+          string $tag_name, string $leading, string $trailing
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Render a comment (i.e. return an empty string).</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderComment()">\Mustache::_renderComment()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$leading</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+<tr>
+<th>$trailing</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderEscaped()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderEscaped</span><span class="nb-faded-text">(
+          string $tag_name, string $leading, string $trailing
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Escape and return the requested tag.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderEscaped()">\Mustache::_renderEscaped()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$leading</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+<tr>
+<th>$trailing</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderPartial()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderPartial</span><span class="nb-faded-text">(
+          string $tag_name, string $leading, string $trailing
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Render the requested partial.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderPartial()">\Mustache::_renderPartial()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$leading</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+<tr>
+<th>$trailing</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderPragma()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderPragma</span><span class="nb-faded-text">(
+          mixed $matches
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">A preg_replace helper to remove {{%PRAGMA}} tags and enable requested pragma.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderPragma()">\Mustache::_renderPragma()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$matches</th>
+<td>mixed</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Throws</strong><table class="argument-info">
+<thead><tr>
+<th>Exception</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td><a href="db_mustache_Mustache.html#%5CMustacheException">\MustacheException</a></td>
+<td><em>unknown pragma</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderPragmas()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderPragmas</span><span class="nb-faded-text">(
+          string $template
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Initialize pragmas and remove all pragma tags.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderPragmas()">\Mustache::_renderPragmas()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$template</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderTag()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderTag</span><span class="nb-faded-text">(
+          string $modifier, string $tag_name, string $leading, string $trailing
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Render the named tag, given the specified modifier.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderTag()">\Mustache::_renderTag()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Accepted modifiers are <code>=</code> (change delimiter), <code>!</code> (comment), <code>&gt;</code> (partial)
+<code>{</code> or <code>&amp;</code> (don't escape output), or none (render escaped output).</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$modifier</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$leading</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+<tr>
+<th>$trailing</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Throws</strong><table class="argument-info">
+<thead><tr>
+<th>Exception</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td><a href="db_mustache_Mustache.html#%5CMustacheException">\MustacheException</a></td>
+<td><em>Unmatched section tag encountered.</em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderTags()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderTags</span><span class="nb-faded-text">(
+          string $template
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Loop through and render individual Mustache tags.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderTags()">\Mustache::_renderTags()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$template</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderTemplate()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderTemplate</span><span class="nb-faded-text">(
+          string $template
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Internal render function, used for recursive calls.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderTemplate()">\Mustache::_renderTemplate()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$template</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>Rendered Mustache template.</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_renderUnescaped()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_renderUnescaped</span><span class="nb-faded-text">(
+          string $tag_name, string $leading, string $trailing
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Return the requested tag unescaped.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_renderUnescaped()">\Mustache::_renderUnescaped()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$tag_name</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$leading</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+<tr>
+<th>$trailing</th>
+<td>string</td>
+<td><em><p>Whitespace</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_setOptions()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_setOptions</span><span class="nb-faded-text">(
+          array $options
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Helper function for setting options from constructor args.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_setOptions()">\Mustache::_setOptions()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$options</th>
+<td>array</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_stringHasR()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_stringHasR</span><span class="nb-faded-text">(
+          string $str
+          )
+        </span>
+        :
+          boolean</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Returns true if any of its args contains the "\r" character.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_stringHasR()">\Mustache::_stringHasR()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$str</th>
+<td>string</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>boolean</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_throwsException()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_throwsException</span><span class="nb-faded-text">(
+          mixed $exception
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Check whether this Mustache instance throws a given exception.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_throwsException()">\Mustache::_throwsException()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Expects exceptions to be MustacheException error codes (i.e. class constants).</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$exception</th>
+<td>mixed</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_varIsCallable()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_varIsCallable</span><span class="nb-faded-text">(
+          mixed $var
+          )
+        </span>
+        :
+          bool</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Higher order sections helper: tests whether the section $var is a valid callback.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_varIsCallable()">\Mustache::_varIsCallable()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>In Mustache.php, a variable is considered 'callable' if the variable is:</p>
+
+<ol>
+<li>an anonymous function.</li>
+<li>an object and the name of a public function, i.e. <code>array($SomeObject, 'methodName')</code></li>
+<li>a class name and the name of a public static function, i.e. <code>array('SomeClass', 'methodName')</code></li>
+</ol>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$var</th>
+<td>mixed</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>bool</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::_varIsIterable()" class="anchor"></a><div class="method protected inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">_varIsIterable</span><span class="nb-faded-text">(
+          mixed $var
+          )
+        </span>
+        :
+          bool</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Check whether the given $var should be iterated (i.e. in a section context).</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::_varIsIterable()">\Mustache::_varIsIterable()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$var</th>
+<td>mixed</td>
+<td><em></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>bool</td>
+<td></td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>protected
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\ChildContext::render()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">render</span><span class="nb-faded-text">(
+          string $template
+              =
+              null, mixed $view
+              =
+              null, array $partials
+              =
+              null
+          )
+        </span>
+        :
+          string</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Render the given template and view object.</p>
+<small>Inherited from:
+                    <a href="db_mustache_Mustache.html#%5CMustache::render()">\Mustache::render()</a></small>
+</div>
+<div class="code-tabs">
+<div class="long-description"><p>Defaults to the template and view passed to the class constructor unless a new one is provided.
+Optionally, pass an associative array of partials as well.</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$template</th>
+<td>string</td>
+<td><em><p>(default: null)</p>
+</em></td>
+</tr>
+<tr>
+<th>$view</th>
+<td>mixed</td>
+<td><em><p>(default: null)</p>
+</em></td>
+</tr>
+<tr>
+<th>$partials</th>
+<td>array</td>
+<td><em><p>(default: null)</p>
+</em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>Rendered Mustache template.</td>
+</tr>
+</table>
+<strong>Details</strong><dl class="function-info">
+<dt>Access</dt>
+<dd>public
+         
+    </dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.15.1</a>.
+    </small></body></html>

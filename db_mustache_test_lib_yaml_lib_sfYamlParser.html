@@ -1,0 +1,597 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+            $(document).ready(function() {
+                $(".filetree").treeview({
+                    collapsed: true,
+                    persist: "cookie"
+                });
+
+                $("#accordion").accordion({
+                    collapsible: true,
+                    autoHeight:  false,
+                    fillSpace:   true
+                });
+
+                $(".tabs").tabs();
+            });
+        </script></head><body><div xmlns="" id="content">
+<script xmlns:dbx="http://docblox-project.org/xsl/functions">
+
+      function filterElements()
+      {
+        inherited = !$('#show-inherited').hasClass('deselected');
+        public    = !$('#show-public').hasClass('deselected');
+        protected = !$('#show-protected').hasClass('deselected');
+        private   = !$('#show-private').hasClass('deselected');
+
+        $('div.public').each(function(index, val) {
+            $(val).toggle(public && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.protected').each(function(index, val) {
+            $(val).toggle(protected && !($(val).hasClass('inherited_from') && !inherited));
+        });
+        $('div.private').each(function(index, val) {
+            $(val).toggle(private && !($(val).hasClass('inherited_from') && !inherited));
+        });
+      }
+
+      $(document).ready(function() {
+        $('a.gripper').click(function() {
+            $(this).nextAll('div.code-tabs').slideToggle();
+            $(this).children('img').toggle();
+            return false;
+        });
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').css('cursor', 'pointer');
+
+        $('div.method code span.highlight,div.function code span.highlight,div.constant code span.highlight,div.property code span.highlight').click(function() {
+            $(this).parent().nextAll('div.code-tabs').slideToggle();
+            $(this).parent().prevAll('a.gripper').children('img').toggle();
+            return false;
+        });
+
+        $('div.code-tabs').hide();
+        $('a.gripper').show();
+        $('div.code-tabs:empty').prevAll('a.gripper').html('');
+
+        $('#show-public, #show-protected, #show-private, #show-inherited')
+            .css('cursor', 'pointer')
+            .click(function(){
+                $(this).toggleClass('deselected');
+                if ($(this).hasClass('deselected')) {
+                  $(this).fadeTo('fast', '0.4');
+                } else {
+                  $(this).fadeTo('fast', '1.0');
+                }
+                filterElements();
+                return false;
+            });
+        $('#show-protected, #show-private').click();
+
+        // add the sliding behaviour to the file navigation and show it
+        // it is initially hidden for non-JS users.
+        $("#file-nav-box").show().hover(function() {
+            $("#file-nav-container").slideDown(400);
+        }, function() {
+            $("#file-nav-container").slideUp(400);
+        });
+      });
+
+      
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">mustache/test/lib/yaml/lib/sfYamlParser.php</h1>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
+<div id="file-nav-options">
+              Show:
+              <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
+</div>
+<div id="file-nav-container">
+<ul id="file-nav">
+<li>
+<a href="#constants"><img src="images/icons/constant.png" height="14">
+                          Constants
+                      </a><ul><li><a href="#::PREG_BAD_UTF8_OFFSET_ERROR">PREG_BAD_UTF8_OFFSET_ERROR</a></li></ul>
+</li>
+<li>
+<a href="#functions"><img src="images/icons/function.png" height="14">
+                          Functions
+                      </a><ul></ul>
+</li>
+<li>
+<a href="#classes"><img src="images/icons/class.png" height="14">
+                          Classes
+                      </a><ul><li><a href="#%5CsfYamlParser">\sfYamlParser</a></li></ul>
+</li>
+</ul>
+<div style="clear: left;"></div>
+</div>
+<div id="file-nav-tab">
+              Table of Contents
+          </div>
+</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><a name="constants" class="anchor"></a><h2>Constants</h2>
+<div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::PREG_BAD_UTF8_OFFSET_ERROR" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="constant publicC">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/constant.png" alt="Constant"> 
+                <span class="highlight">PREG_BAD_UTF8_OFFSET_ERROR</span>
+                = 5</code><div class="description"></div>
+<div class="code-tabs"><dl class="constant-info"></dl></div>
+<div class="clear"></div>
+</div>
+</div>
+<a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\sfYamlParser" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\sfYamlParser<div class="to-top"><a href="#top">jump to top</a></div>
+</h2>
+<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
+<small class="package"><b>Package: </b>symfony\yaml</small><p class="short-description">sfYamlParser parses YAML strings to convert them to PHP arrays.</p>
+<div class="long-description">
+</div>
+<dl class="class-info">
+<dt>Author</dt>
+<dd>
+<a href="mailto:fabien.potencier@symfony-project.com">Fabien Potencier</a>
+         
+    </dd>
+<dt>Version</dt>
+<dd>SVN: $Id: sfYamlParser.class.php 10832 2008-08-13 07:46:08Z fabien $
+         
+    </dd>
+</dl>
+<h3>Properties</h3>
+<div>
+<a id="\sfYamlParser::$currentLine" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$currentLine</span>= ''''
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>''</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::$currentLineNb" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$currentLineNb</span>= '-1'
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>-1</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::$lines" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$lines</span>= 'array()'
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::$offset" class="anchor"></a><div class="property protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected">
+                 <span class="highlight">$offset</span>= '0'
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>0</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::$refs" class="anchor"></a><div class="property public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/property.png" alt="Property"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public">
+                 <span class="highlight">$refs</span>= 'array()'
+                </code><div class="description"></div>
+<div class="code-tabs">
+<strong>Default value</strong><code>array()</code><strong>Details</strong><dl class="property-info">
+<dt>Type</dt>
+<dd></dd>
+</dl>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+<h3>Methods</h3>
+<div>
+<a id="\sfYamlParser::__construct()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">__construct</span><span class="nb-faded-text">(
+          integer $offset
+              =
+              0
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Constructor</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$offset</th>
+<td>integer</td>
+<td><em><p>The offset of YAML document (used for line numbers in error messages)</p>
+</em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::cleanup()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">cleanup</span><span class="nb-faded-text">(
+          string $value
+          )
+        </span>
+        :
+          string</code><div class="description"><p class="short_description">Cleanups a YAML string to be parsed.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$value</th>
+<td>string</td>
+<td><em><p>The input YAML string</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>A cleaned up YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::getCurrentLineIndentation()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">getCurrentLineIndentation</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          integer</code><div class="description"><p class="short_description">Returns the current line indentation.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>integer</td>
+<td>The current line indentation</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::getNextEmbedBlock()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">getNextEmbedBlock</span><span class="nb-faded-text">(
+          integer $indentation
+              =
+              null
+          )
+        </span>
+        :
+          string</code><div class="description"><p class="short_description">Returns the next embed block of YAML.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$indentation</th>
+<td>integer</td>
+<td><em><p>The indent level at which the block is to be read, or null for default</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>A YAML string</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::getRealCurrentLineNb()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">getRealCurrentLineNb</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          integer</code><div class="description"><p class="short_description">Returns the current line number (takes the offset into account).</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>integer</td>
+<td>The current line number</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::isCurrentLineBlank()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">isCurrentLineBlank</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          Boolean</code><div class="description"><p class="short_description">Returns true if the current line is blank.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>Boolean</td>
+<td>Returns true if the current line is blank, false otherwise</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::isCurrentLineComment()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">isCurrentLineComment</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          Boolean</code><div class="description"><p class="short_description">Returns true if the current line is a comment line.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>Boolean</td>
+<td>Returns true if the current line is a comment line, false otherwise</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::isCurrentLineEmpty()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">isCurrentLineEmpty</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          Boolean</code><div class="description"><p class="short_description">Returns true if the current line is blank or if it is a comment line.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>Boolean</td>
+<td>Returns true if the current line is empty or if it is a comment line, false otherwise</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::isNextLineIndented()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">isNextLineIndented</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          Boolean</code><div class="description"><p class="short_description">Returns true if the next line is indented.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>Boolean</td>
+<td>Returns true if the next line is indented, false otherwise</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::moveToNextLine()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">moveToNextLine</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Moves the parser to the next line.</p></div>
+<div class="code-tabs"><div class="long-description">
+</div></div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::moveToPreviousLine()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">moveToPreviousLine</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Moves the parser to the previous line.</p></div>
+<div class="code-tabs"><div class="long-description">
+</div></div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::parse()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">parse</span><span class="nb-faded-text">(
+          string $value
+          )
+        </span>
+        :
+          mixed</code><div class="description"><p class="short_description">Parses a YAML string to a PHP value.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$value</th>
+<td>string</td>
+<td><em><p>A YAML string</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>mixed</td>
+<td>A PHP value</td>
+</tr>
+</table>
+<strong>Throws</strong><table class="argument-info">
+<thead><tr>
+<th>Exception</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td><a href="http://php.net/manual/en/class.invalidargumentexception.php">\InvalidArgumentException</a></td>
+<td><em>If the YAML is not valid</em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::parseFoldedScalar()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">parseFoldedScalar</span><span class="nb-faded-text">(
+          string $separator, string $indicator
+              =
+              '', integer $indentation
+              =
+              0
+          )
+        </span>
+        :
+          string</code><div class="description"><p class="short_description">Parses a folded scalar.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$separator</th>
+<td>string</td>
+<td><em><p>The separator that was used to begin this folded scalar (| or >)</p>
+</em></td>
+</tr>
+<tr>
+<th>$indicator</th>
+<td>string</td>
+<td><em><p>The indicator that was used to begin this folded scalar (+ or -)</p>
+</em></td>
+</tr>
+<tr>
+<th>$indentation</th>
+<td>integer</td>
+<td><em><p>The indentation that was used to begin this folded scalar</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>string</td>
+<td>The text value</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\sfYamlParser::parseValue()" class="anchor"></a><div class="method protected">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_protected.png" style="margin-right: 5px" alt="protected"><span class="highlight">parseValue</span><span class="nb-faded-text">(
+          string $value
+          )
+        </span>
+        :
+          mixed</code><div class="description"><p class="short_description">Parses a YAML value.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$value</th>
+<td>string</td>
+<td><em><p>A YAML value</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>mixed</td>
+<td>A PHP value</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
+<small xmlns="" class="footer">Documentation was generated by <a href="http://docblox-project.org">DocBlox 0.15.1</a>.
+    </small></body></html>

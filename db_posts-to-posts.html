@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Posts 2 Posts Reference</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>DocBlox Documentation</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta><link rel="stylesheet" href="css/jquery-ui.css" type="text/css"></link><link rel="stylesheet" href="css/docblox/jquery-ui-1.8.16.custom.css" type="text/css"></link><link rel="stylesheet" href="css/jquery.treeview.css" type="text/css"></link><link rel="stylesheet" href="css/theme.css" type="text/css"></link><script type="text/javascript" src="js/jquery-1.4.2.min.js"></script><script type="text/javascript" src="js/jquery-ui-1.8.2.custom.min.js"></script><script type="text/javascript" src="js/jquery.cookie.js"></script><script type="text/javascript" src="js/jquery.treeview.js"></script><script type="text/javascript">
             $(document).ready(function() {
                 $(".filetree").treeview({
                     collapsed: true,
@@ -77,55 +77,58 @@
       });
 
       
-    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">core/query-user.php</h1>
+    </script><h1 xmlns:dbx="http://docblox-project.org/xsl/functions" class="file">posts-to-posts.php</h1>
 <div xmlns:dbx="http://docblox-project.org/xsl/functions" id="file-nav-box">
 <div id="file-nav-options">
               Show:
               <img src="images/icons/visibility_public.png" id="show-public"><img src="images/icons/visibility_protected.png" id="show-protected"><img src="images/icons/visibility_private.png" id="show-private"><span class="attribute" id="show-inherited">inherited</span>
 </div>
 <div id="file-nav-container">
-<ul id="file-nav"><li>
-<a href="#classes"><img src="images/icons/class.png" height="14">
-                          Classes
-                      </a><ul><li><a href="#%5CP2P_User_Query">\P2P_User_Query</a></li></ul>
-</li></ul>
+<ul id="file-nav">
+<li>
+<a href="#constants"><img src="images/icons/constant.png" height="14">
+                          Constants
+                      </a><ul>
+<li><a href="#::P2P_PLUGIN_VERSION">P2P_PLUGIN_VERSION</a></li>
+<li><a href="#::P2P_TEXTDOMAIN">P2P_TEXTDOMAIN</a></li>
+</ul>
+</li>
+<li>
+<a href="#functions"><img src="images/icons/function.png" height="14">
+                          Functions
+                      </a><ul>
+<li><a href="#::_p2p_init()">_p2p_init</a></li>
+<li><a href="#::_p2p_load_files()">_p2p_load_files</a></li>
+</ul>
+</li>
+</ul>
 <div style="clear: left;"></div>
 </div>
 <div id="file-nav-tab">
               Table of Contents
           </div>
 </div>
-<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><a name="classes" class="anchor"></a><a xmlns:dbx="http://docblox-project.org/xsl/functions" id="\P2P_User_Query" class="anchor"></a><h2 xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">\P2P_User_Query<div class="to-top"><a href="#top">jump to top</a></div>
-</h2>
-<div xmlns:dbx="http://docblox-project.org/xsl/functions" class="class">
-<small class="package"><b>Package: </b>Core</small><dl class="class-info"></dl>
-<h3>Methods</h3>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" name="top" class="anchor"></a><a name="constants" class="anchor"></a><h2>Constants</h2>
 <div>
-<a id="\P2P_User_Query::expand_connected_type()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">expand_connected_type</span><span class="nb-faded-text">(
-           $q
-          )
-        </span>
-        :
-          void</code><div class="description"><p class="short_description"></p></div>
-<div class="code-tabs">
-<strong>Parameters</strong><table class="argument-info">
-<thead><tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tr>
-<th>$q</th>
-<td></td>
-<td><em></em></td>
-</tr>
-</table>
-</div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::P2P_PLUGIN_VERSION" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="constant publicC">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/constant.png" alt="Constant"> 
+                <span class="highlight">P2P_PLUGIN_VERSION</span>
+                = '1.1.3'</code><div class="description"></div>
+<div class="code-tabs"><dl class="constant-info"></dl></div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_User_Query::init()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">init</span><span class="nb-faded-text">(
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::P2P_TEXTDOMAIN" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="constant publicC">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/constant.png" alt="Constant"> 
+                <span class="highlight">P2P_TEXTDOMAIN</span>
+                = 'posts-to-posts'</code><div class="description"></div>
+<div class="code-tabs"><dl class="constant-info"></dl></div>
+<div class="clear"></div>
+</div>
+</div>
+<a name="functions" class="anchor"></a><h2>Functions</h2>
+<div>
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::_p2p_init()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">_p2p_init</span><span class="nb-faded-text">(
           
           )
         </span>
@@ -134,9 +137,9 @@
 <div class="code-tabs"></div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_User_Query::pre_user_query()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">pre_user_query</span><span class="nb-faded-text">(
-           $query
+<a xmlns:dbx="http://docblox-project.org/xsl/functions" id="::_p2p_load_files()" class="anchor"></a><div xmlns:dbx="http://docblox-project.org/xsl/functions" class="function ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/function.png" alt="function"><span class="highlight">_p2p_load_files</span><span class="nb-faded-text">(
+           $dir,  $files
           )
         </span>
         :
@@ -149,14 +152,18 @@
 <th>Description</th>
 </tr></thead>
 <tr>
-<th>$query</th>
+<th>$dir</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$files</th>
 <td></td>
 <td><em></em></td>
 </tr>
 </table>
 </div>
 <div class="clear"></div>
-</div>
 </div>
 </div>
 </div>
