@@ -106,6 +106,7 @@
 <li><p>'fields' - array( key => Title ) Metadata fields editable by the user. Default: none.</p></li>
 <li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
+<li><p>'self_connections' - bool Whether to allow a post to connect to itself. Default: false.</p></li>
 <li><p>'sortable' - bool|string Whether to allow connections to be ordered via drag-and-drop. Can be 'from', 'to', 'any' or false. Default: false.</p></li>
 <li><p>'title' - string|array The box's title. Default: 'Connected {$post_type}s'</p></li>
 <li><p>'from_labels' - array Additional labels for the admin box (optional)</p></li>
@@ -594,6 +595,7 @@
 <li><p>'fields' - array( key => Title ) Metadata fields editable by the user. Default: none.</p></li>
 <li><p>'cardinality' - string How many connection can each post have: 'one-to-many', 'many-to-one' or 'many-to-many'. Default: 'many-to-many'</p></li>
 <li><p>'prevent_duplicates' - bool Whether to disallow duplicate connections between the same two posts. Default: true.</p></li>
+<li><p>'self_connections' - bool Whether to allow a post to connect to itself. Default: false.</p></li>
 <li><p>'sortable' - bool|string Whether to allow connections to be ordered via drag-and-drop. Can be 'from', 'to', 'any' or false. Default: false.</p></li>
 <li><p>'title' - string|array The box's title. Default: 'Connected {$post_type}s'</p></li>
 <li><p>'from_labels' - array Additional labels for the admin box (optional)</p></li>

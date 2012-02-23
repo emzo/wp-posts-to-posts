@@ -262,6 +262,33 @@
 </div>
 <div class="clear"></div>
 </div>
+<a id="\P2P_Side_Attachment::abstract_query()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">abstract_query</span><span class="nb-faded-text">(
+           $query
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description"></p>
+<small>Inherited from:
+                    <a href="db_core_side.html#%5CP2P_Side_Post::abstract_query()">\P2P_Side_Post::abstract_query()</a></small>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$query</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
 <a id="\P2P_Side_Attachment::check_capability()" class="anchor"></a><div class="method public inherited_from ">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">check_capability</span><span class="nb-faded-text">(
           
@@ -317,16 +344,16 @@
 <div class="code-tabs"></div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_Attachment::get_connectable()" class="anchor"></a><div class="method public inherited_from ">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connectable</span><span class="nb-faded-text">(
-           $item_id,  $page,  $search,  $to_exclude,  $directed
+<a id="\P2P_Side_Attachment::get_connectable_qv()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connectable_qv</span><span class="nb-faded-text">(
+           $item_id,  $page,  $search,  $to_exclude
           )
         </span>
         :
           void</code><div class="description">
 <span class="attribute">inherited</span><p class="short_description"></p>
 <small>Inherited from:
-                    <a href="db_core_side.html#%5CP2P_Side_Post::get_connectable()">\P2P_Side_Post::get_connectable()</a></small>
+                    <a href="db_core_side.html#%5CP2P_Side_Post::get_connectable_qv()">\P2P_Side_Post::get_connectable_qv()</a></small>
 </div>
 <div class="code-tabs">
 <strong>Parameters</strong><table class="argument-info">
@@ -355,45 +382,22 @@
 <td></td>
 <td><em></em></td>
 </tr>
-<tr>
-<th>$directed</th>
-<td></td>
-<td><em></em></td>
-</tr>
 </table>
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_Attachment::get_connections()" class="anchor"></a><div class="method public inherited_from ">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connections</span><span class="nb-faded-text">(
-           $directed,  $item_id
+<a id="\P2P_Side_Attachment::get_connections_qv()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connections_qv</span><span class="nb-faded-text">(
+          
           )
         </span>
         :
           void</code><div class="description">
 <span class="attribute">inherited</span><p class="short_description"></p>
 <small>Inherited from:
-                    <a href="db_core_side.html#%5CP2P_Side_Post::get_connections()">\P2P_Side_Post::get_connections()</a></small>
+                    <a href="db_core_side.html#%5CP2P_Side_Post::get_connections_qv()">\P2P_Side_Post::get_connections_qv()</a></small>
 </div>
-<div class="code-tabs">
-<strong>Parameters</strong><table class="argument-info">
-<thead><tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tr>
-<th>$directed</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
-<th>$item_id</th>
-<td></td>
-<td><em></em></td>
-</tr>
-</table>
-</div>
+<div class="code-tabs"></div>
 <div class="clear"></div>
 </div>
 <a id="\P2P_Side_Attachment::get_labels()" class="anchor"></a><div class="method public inherited_from ">
@@ -465,8 +469,8 @@
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_Attachment::recognize_item()" class="anchor"></a><div class="method public inherited_from ">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">recognize_item</span><span class="nb-faded-text">(
+<a id="\P2P_Side_Attachment::item_recognize()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">item_recognize</span><span class="nb-faded-text">(
           mixed $arg
           )
         </span>
@@ -474,7 +478,7 @@
           void</code><div class="description">
 <span class="attribute">inherited</span><p class="short_description"></p>
 <small>Inherited from:
-                    <a href="db_core_side.html#%5CP2P_Side_Post::recognize_item()">\P2P_Side_Post::recognize_item()</a></small>
+                    <a href="db_core_side.html#%5CP2P_Side_Post::item_recognize()">\P2P_Side_Post::item_recognize()</a></small>
 </div>
 <div class="code-tabs">
 <div class="long-description">
@@ -489,6 +493,33 @@
 <th>$arg</th>
 <td>mixed</td>
 <td><em><p>A post type, a post id, a post object, an array of post ids or of objects.</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Side_Attachment::item_title()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">item_title</span><span class="nb-faded-text">(
+           $item
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description"></p>
+<small>Inherited from:
+                    <a href="db_core_side.html#%5CP2P_Side_Post::item_title()">\P2P_Side_Post::item_title()</a></small>
+</div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$item</th>
+<td></td>
+<td><em></em></td>
 </tr>
 </table>
 </div>
@@ -579,6 +610,29 @@
 </div>
 <div class="clear"></div>
 </div>
+<a id="\P2P_Side_Post::abstract_query()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">abstract_query</span><span class="nb-faded-text">(
+           $query
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$query</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
 <a id="\P2P_Side_Post::check_capability()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">check_capability</span><span class="nb-faded-text">(
           
@@ -622,9 +676,9 @@
 <div class="code-tabs"></div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_Post::get_connectable()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connectable</span><span class="nb-faded-text">(
-           $item_id,  $page,  $search,  $to_exclude,  $directed
+<a id="\P2P_Side_Post::get_connectable_qv()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connectable_qv</span><span class="nb-faded-text">(
+           $item_id,  $page,  $search,  $to_exclude
           )
         </span>
         :
@@ -656,41 +710,18 @@
 <td></td>
 <td><em></em></td>
 </tr>
-<tr>
-<th>$directed</th>
-<td></td>
-<td><em></em></td>
-</tr>
 </table>
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_Post::get_connections()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connections</span><span class="nb-faded-text">(
-           $directed,  $item_id
+<a id="\P2P_Side_Post::get_connections_qv()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connections_qv</span><span class="nb-faded-text">(
+          
           )
         </span>
         :
           void</code><div class="description"><p class="short_description"></p></div>
-<div class="code-tabs">
-<strong>Parameters</strong><table class="argument-info">
-<thead><tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tr>
-<th>$directed</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
-<th>$item_id</th>
-<td></td>
-<td><em></em></td>
-</tr>
-</table>
-</div>
+<div class="code-tabs"></div>
 <div class="clear"></div>
 </div>
 <a id="\P2P_Side_Post::get_labels()" class="anchor"></a><div class="method public">
@@ -746,8 +777,8 @@
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_Post::recognize_item()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">recognize_item</span><span class="nb-faded-text">(
+<a id="\P2P_Side_Post::item_recognize()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">item_recognize</span><span class="nb-faded-text">(
           mixed $arg
           )
         </span>
@@ -766,6 +797,29 @@
 <th>$arg</th>
 <td>mixed</td>
 <td><em><p>A post type, a post id, a post object, an array of post ids or of objects.</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Side_Post::item_title()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">item_title</span><span class="nb-faded-text">(
+           $item
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$item</th>
+<td></td>
+<td><em></em></td>
 </tr>
 </table>
 </div>
@@ -832,6 +886,29 @@
 </div>
 <div class="clear"></div>
 </div>
+<a id="\P2P_Side_User::abstract_query()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">abstract_query</span><span class="nb-faded-text">(
+           $query
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$query</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
 <a id="\P2P_Side_User::check_capability()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">check_capability</span><span class="nb-faded-text">(
           
@@ -879,9 +956,9 @@
 <div class="code-tabs"></div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_User::get_connectable()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connectable</span><span class="nb-faded-text">(
-           $item_id,  $page,  $search,  $to_exclude,  $directed
+<a id="\P2P_Side_User::get_connectable_qv()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connectable_qv</span><span class="nb-faded-text">(
+           $item_id,  $page,  $search,  $to_exclude
           )
         </span>
         :
@@ -913,41 +990,18 @@
 <td></td>
 <td><em></em></td>
 </tr>
-<tr>
-<th>$directed</th>
-<td></td>
-<td><em></em></td>
-</tr>
 </table>
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_User::get_connections()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connections</span><span class="nb-faded-text">(
-           $directed,  $item_id
+<a id="\P2P_Side_User::get_connections_qv()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connections_qv</span><span class="nb-faded-text">(
+          
           )
         </span>
         :
           void</code><div class="description"><p class="short_description"></p></div>
-<div class="code-tabs">
-<strong>Parameters</strong><table class="argument-info">
-<thead><tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-</tr></thead>
-<tr>
-<th>$directed</th>
-<td></td>
-<td><em></em></td>
-</tr>
-<tr>
-<th>$item_id</th>
-<td></td>
-<td><em></em></td>
-</tr>
-</table>
-</div>
+<div class="code-tabs"></div>
 <div class="clear"></div>
 </div>
 <a id="\P2P_Side_User::get_labels()" class="anchor"></a><div class="method public">
@@ -993,8 +1047,8 @@
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Side_User::recognize_item()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">recognize_item</span><span class="nb-faded-text">(
+<a id="\P2P_Side_User::item_recognize()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">item_recognize</span><span class="nb-faded-text">(
            $arg
           )
         </span>
@@ -1009,6 +1063,29 @@
 </tr></thead>
 <tr>
 <th>$arg</th>
+<td></td>
+<td><em></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Side_User::item_title()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">item_title</span><span class="nb-faded-text">(
+           $item
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs">
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$item</th>
 <td></td>
 <td><em></em></td>
 </tr>

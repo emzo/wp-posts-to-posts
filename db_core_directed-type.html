@@ -381,7 +381,9 @@
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_connected</span><span class="nb-faded-text">(
           int|array $post_id, array $extra_qv
               =
-              array()
+              array(),  $output
+              =
+              'raw'
           )
         </span>
         :
@@ -404,6 +406,11 @@
 <th>$extra_qv</th>
 <td>array</td>
 <td><em><p>Additional query variables to use.</p></em></td>
+</tr>
+<tr>
+<th>$output</th>
+<td></td>
+<td><em></em></td>
 </tr>
 </table>
 <strong>Returns</strong><table class="argument-info">
@@ -544,6 +551,53 @@
         :
           void</code><div class="description"><p class="short_description"></p></div>
 <div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Directed_Connection_Type::replace()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">replace</span><span class="nb-faded-text">(
+          int $from, int $to, array $meta
+              =
+              array()
+          )
+        </span>
+        :
+          int</code><div class="description"><p class="short_description">For one-to-many connections: replaces existing item with a new one.</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$from</th>
+<td>int</td>
+<td><em><p>The first end of the connection.</p></em></td>
+</tr>
+<tr>
+<th>$to</th>
+<td>int</td>
+<td><em><p>The second end of the connection.</p></em></td>
+</tr>
+<tr>
+<th>$meta</th>
+<td>array</td>
+<td><em><p>Additional information about the connection.</p></em></td>
+</tr>
+</table>
+<strong>Returns</strong><table class="argument-info">
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<td>int</td>
+<td>p2p_id</td>
+</tr>
+</table>
+</div>
 <div class="clear"></div>
 </div>
 <a id="\P2P_Directed_Connection_Type::set_direction()" class="anchor"></a><div class="method public">

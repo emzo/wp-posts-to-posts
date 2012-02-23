@@ -233,6 +233,45 @@
 </div>
 <div class="clear"></div>
 </div>
+<a id="\Generic_Connection_Type::each_connected()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">each_connected</span><span class="nb-faded-text">(
+          object $query, string|array $extra_qv
+              =
+              array(), string $prop_name
+              =
+              'connected'
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Optimized inner query, after the outer query was executed.</p></div>
+<div class="code-tabs">
+<div class="long-description"><p>Populates each of the outer querie's $post objects with a 'connected' property, containing a list of connected posts</p>
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$query</th>
+<td>object</td>
+<td><em><p>WP_Query instance.</p></em></td>
+</tr>
+<tr>
+<th>$extra_qv</th>
+<td>string|array</td>
+<td><em><p>Additional query vars for the inner query.</p></em></td>
+</tr>
+<tr>
+<th>$prop_name</th>
+<td>string</td>
+<td><em><p>The name of the property used to store the list of connected items on each post object.</p></em></td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
 <a id="\Generic_Connection_Type::expand_title()" class="anchor"></a><div class="method private">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">expand_title</span><span class="nb-faded-text">(
            $title
@@ -599,7 +638,7 @@
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Connection_Type::each_connected()" class="anchor"></a><div class="method public">
+<a id="\P2P_Connection_Type::each_connected()" class="anchor"></a><div class="method public inherited_from ">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">each_connected</span><span class="nb-faded-text">(
           object $query, string|array $extra_qv
               =
@@ -609,7 +648,11 @@
           )
         </span>
         :
-          void</code><div class="description"><p class="short_description">Optimized inner query, after the outer query was executed.</p></div>
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description">Optimized inner query, after the outer query was executed.</p>
+<small>Inherited from:
+                    <a href="db_core_type.html#%5CGeneric_Connection_Type::each_connected()">\Generic_Connection_Type::each_connected()</a></small>
+</div>
 <div class="code-tabs">
 <div class="long-description"><p>Populates each of the outer querie's $post objects with a 'connected' property, containing a list of connected posts</p>
 </div>
