@@ -91,7 +91,7 @@ class P2P_Tools_Page extends scbAdminPage {
 			if ( $ctype ) {
 				$row['desc'] = $ctype->get_desc();
 			} else {
-				$row['desc'] = __( 'Convert to registered connection type:', P2P_TEXTDOMAIN ) . scbForms::form_wrap( $this->get_dropdown( $p2p_type ), $this->nonce );
+				$row['desc'] = scbForms::form_wrap( $this->get_dropdown( $p2p_type ), $this->nonce );
 				$row['class'] = 'error';
 			}
 
@@ -123,11 +123,40 @@ class P2P_Tools_Page extends scbAdminPage {
 	}
 
 	private function get_dropdown( $p2p_type ) {
+		global $wpdb;
+
+		$type_combinations = $wpdb->get_results( $wpdb->prepare( "
+			SELECT DISTINCT fromtype.post_type AS fromtype, totype.post_type AS totype
+			FROM $wpdb->p2p
+			INNER JOIN $wpdb->posts as fromtype ON $wpdb->p2p.p2p_from = fromtype.ID
+			INNER JOIN $wpdb->posts as totype ON $wpdb->p2p.p2p_to = totype.ID
+			WHERE p2p_type = %s
+		", $p2p_type ) );
+
+		$types = array(
+			'from' => array(),
+			'to' => array()
+		);
+
+		foreach ( $type_combinations as $row ) {
+			$types['from'][] = $row->fromtype;
+			$types['to'][] = $row->totype;
+		}
+
 		$data = array(
 			'old_p2p_type' => $p2p_type,
 			'options' => array_keys( P2P_Connection_Type_Factory::get_all_instances() ),
+			'form-description' => __( 'Convert to registered connection type:', P2P_TEXTDOMAIN ),
 			'button_text' => __( 'Go', P2P_TEXTDOMAIN )
 		);
+
+		foreach ( array( 'from', 'to' ) as $key ) {
+			$side = new P2P_Side_Post( array(
+				'post_type' => $types[ $key ]
+			) );
+
+			$data[ $key . '-types' ] = $side->get_desc();
+		}
 
 		return P2P_Mustache::render( 'connection-types-form', $data );
 	}
