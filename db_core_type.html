@@ -337,6 +337,16 @@
 </div>
 <div class="clear"></div>
 </div>
+<a id="\Generic_Connection_Type::get_desc()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_desc</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description"></p></div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
 <a id="\Generic_Connection_Type::set_cardinality()" class="anchor"></a><div class="method private">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_private.png" style="margin-right: 5px" alt="private"><span class="highlight">set_cardinality</span><span class="nb-faded-text">(
            $cardinality
@@ -772,6 +782,20 @@
 </div>
 <div class="clear"></div>
 </div>
+<a id="\P2P_Connection_Type::get_desc()" class="anchor"></a><div class="method public inherited_from ">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_desc</span><span class="nb-faded-text">(
+          
+          )
+        </span>
+        :
+          void</code><div class="description">
+<span class="attribute">inherited</span><p class="short_description"></p>
+<small>Inherited from:
+                    <a href="db_core_type.html#%5CGeneric_Connection_Type::get_desc()">\Generic_Connection_Type::get_desc()</a></small>
+</div>
+<div class="code-tabs"></div>
+<div class="clear"></div>
+</div>
 <a id="\P2P_Connection_Type::get_next()" class="anchor"></a><div class="method public">
 <a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_next</span><span class="nb-faded-text">(
           int $from, int $to
@@ -812,8 +836,8 @@
 </div>
 <div class="clear"></div>
 </div>
-<a id="\P2P_Connection_Type::get_previous()" class="anchor"></a><div class="method public">
-<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_previous</span><span class="nb-faded-text">(
+<a id="\P2P_Connection_Type::get_prev()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_prev</span><span class="nb-faded-text">(
           int $from, int $to
           )
         </span>
@@ -847,6 +871,36 @@
 <tr>
 <td>bool|object</td>
 <td>False on failure, post object on success</td>
+</tr>
+</table>
+</div>
+<div class="clear"></div>
+</div>
+<a id="\P2P_Connection_Type::get_previous()" class="anchor"></a><div class="method public">
+<a href="#" class="gripper"><img src="images/icons/arrow_right.png"><img src="images/icons/arrow_down.png" style="display: none;"></a><code><img src="images/icons/method.png" alt="method"><img src="images/icons/visibility_public.png" style="margin-right: 5px" alt="public"><span class="highlight">get_previous</span><span class="nb-faded-text">(
+           $from,  $to
+          )
+        </span>
+        :
+          void</code><div class="description"><p class="short_description">Alias for get_prev()</p></div>
+<div class="code-tabs">
+<div class="long-description">
+</div>
+<strong>Parameters</strong><table class="argument-info">
+<thead><tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr></thead>
+<tr>
+<th>$from</th>
+<td></td>
+<td><em></em></td>
+</tr>
+<tr>
+<th>$to</th>
+<td></td>
+<td><em></em></td>
 </tr>
 </table>
 </div>

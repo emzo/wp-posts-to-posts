@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <project version="0.15.1" title="Posts 2 Posts Reference">
-  <file path="core/query-post.php" hash="657778284bdedcc25471403a21137d51" package="Core">
+  <file path="core/query-post.php" hash="44788b7b4e4903a437ecb58309d3f158" package="Core">
     <docblock>
       <description>Handles connected{_to|_from} query vars</description>
       <long-description>
@@ -10,10 +10,9 @@
       <error line="3">No Page-level DocBlock was found in file core/query-post.php</error>
       <error line="8">No DocBlock was found for Method init</error>
       <error line="14">No DocBlock was found for Method parse_query</error>
-      <error line="38">No DocBlock was found for Method expand_connected_type</error>
-      <error line="69">No DocBlock was found for Method posts_clauses</error>
-      <notice line="85">Argument $the_posts is missing from the function Docblock</notice>
-      <notice line="85">Argument $wp_query is missing from the function Docblock</notice>
+      <error line="35">No DocBlock was found for Method posts_clauses</error>
+      <notice line="51">Argument $the_posts is missing from the function Docblock</notice>
+      <notice line="51">Argument $wp_query is missing from the function Docblock</notice>
     </parse_markers>
     <class final="false" abstract="false" line="6" namespace="default" package="Core">
       <name>P2P_WP_Query</name>
@@ -24,10 +23,10 @@
         <long-description>
 </long-description>
       </docblock>
-      <method final="false" abstract="false" static="false" visibility="public" line="8" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="8" package="Core">
         <name>init</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="14" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="14" package="Core">
         <name>parse_query</name>
         <argument line="14">
           <name>$wp_query</name>
@@ -35,40 +34,32 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="38" package="Core">
-        <name>expand_connected_type</name>
-        <argument line="38">
-          <name>$q</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="69" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="35" package="Core">
         <name>posts_clauses</name>
-        <argument line="69">
+        <argument line="35">
           <name>$clauses</name>
           <default/>
           <type/>
         </argument>
-        <argument line="69">
+        <argument line="35">
           <name>$wp_query</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="85" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="51" package="Core">
         <name>cache_p2p_meta</name>
         <docblock>
           <description>Pre-populates the p2p meta cache to decrease the number of queries.</description>
           <long-description>
 </long-description>
         </docblock>
-        <argument line="85">
+        <argument line="51">
           <name>$the_posts</name>
           <default/>
           <type/>
         </argument>
-        <argument line="85">
+        <argument line="51">
           <name>$wp_query</name>
           <default/>
           <type/>
@@ -100,7 +91,7 @@
       </method>
     </class>
   </file>
-  <file path="core/directed-type.php" hash="e05b08c109e81d642b35d8af656c56f0" package="Core">
+  <file path="core/directed-type.php" hash="d1873dfc97422f32f80a3267bb4b7786" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File core/directed-type.php</error>
       <error line="3">No DocBlock was found for Class P2P_Directed_Connection_Type</error>
@@ -115,16 +106,16 @@
       <error line="33">No DocBlock was found for Method get_opposite</error>
       <error line="39">No DocBlock was found for Method get_current</error>
       <error line="45">No DocBlock was found for Method get_arg</error>
-      <error line="51">No DocBlock was found for Method accepts_single_connection</error>
-      <notice line="63">Argument $output is missing from the function Docblock</notice>
-      <error line="78">No DocBlock was found for Method get_connected_args</error>
-      <error line="99">No DocBlock was found for Method get_orderby_key</error>
-      <critical line="113">No short description for method get_connections</critical>
-      <notice line="114">Argument $post_id is missing from the function Docblock</notice>
-      <notice line="127">Name of argument $item_id does not match with function Docblock</notice>
-      <notice line="127">Argument $page is missing from the function Docblock</notice>
-      <notice line="127">Argument $search is missing from the function Docblock</notice>
-      <error line="249">No DocBlock was found for Method get_p2p_id</error>
+      <notice line="59">Argument $output is missing from the function Docblock</notice>
+      <error line="74">No DocBlock was found for Method get_connected_args</error>
+      <error line="94">No DocBlock was found for Method get_orderby_key</error>
+      <notice line="113">Name of argument $item_id does not match with function Docblock</notice>
+      <notice line="113">Argument $page is missing from the function Docblock</notice>
+      <notice line="113">Argument $search is missing from the function Docblock</notice>
+      <error line="123">No DocBlock was found for Method get_non_connectable</error>
+      <error line="199">No DocBlock was found for Method get_p2p_id</error>
+      <notice line="210">Argument $method is missing from the function Docblock</notice>
+      <notice line="210">Argument $args is missing from the function Docblock</notice>
     </parse_markers>
     <class final="false" abstract="false" line="3" namespace="default" package="Core">
       <name>P2P_Directed_Connection_Type</name>
@@ -210,219 +201,193 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="51" package="Core">
-        <name>accepts_single_connection</name>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="63" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="59" package="Core">
         <name>get_connected</name>
         <docblock>
           <description>Get a list of posts that are connected to a given post.</description>
           <long-description>
 </long-description>
-          <tag line="55" name="param" description="A post id or an array of post ids." type="int|array" variable="$post_id">
+          <tag line="51" name="param" description="A post id or an array of post ids." type="int|array" variable="$post_id">
             <type by_reference="false">int</type>
             <type by_reference="false">array</type>
           </tag>
-          <tag line="55" name="param" description="Additional query variables to use." type="array" variable="$extra_qv">
+          <tag line="51" name="param" description="Additional query variables to use." type="array" variable="$extra_qv">
             <type by_reference="false">array</type>
           </tag>
-          <tag line="55" name="return" description="" type="object">
+          <tag line="51" name="return" description="" type="object">
             <type by_reference="false">object</type>
           </tag>
         </docblock>
-        <argument line="63">
+        <argument line="59">
           <name>$post_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="63">
+        <argument line="59">
           <name>$extra_qv</name>
           <default>array()</default>
           <type/>
         </argument>
-        <argument line="63">
+        <argument line="59">
           <name>$output</name>
           <default>'raw'</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="78" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="74" package="Core">
         <name>get_connected_args</name>
-        <argument line="78">
+        <argument line="74">
           <name>$q</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="99" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="94" package="Core">
         <name>get_orderby_key</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="114" package="Core">
-        <name>get_connections</name>
-        <docblock>
-          <description/>
-          <long-description>
-</long-description>
-          <tag line="113" name="internal" description=""/>
-        </docblock>
-        <argument line="114">
-          <name>$post_id</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="127" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="113" package="Core">
         <name>get_connectable</name>
         <docblock>
           <description>Get a list of posts that could be connected to a given post.</description>
           <long-description>
 </long-description>
-          <tag line="122" name="param" description="A post id." type="int" variable="$post_id">
+          <tag line="108" name="param" description="A post id." type="int" variable="$post_id">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
-        <argument line="127">
+        <argument line="113">
           <name>$item_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="127">
+        <argument line="113">
           <name>$page</name>
           <default/>
           <type/>
         </argument>
-        <argument line="127">
+        <argument line="113">
           <name>$search</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="166" package="Core">
+      <method final="false" abstract="false" static="false" visibility="private" line="123" package="Core">
+        <name>get_non_connectable</name>
+        <argument line="123">
+          <name>$item_id</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="154" package="Core">
         <name>connect</name>
         <docblock>
           <description>Connect two items.</description>
           <long-description>
 </long-description>
-          <tag line="157" name="param" description="The first end of the connection." type="int" variable="$from">
+          <tag line="145" name="param" description="The first end of the connection." type="int" variable="$from">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="157" name="param" description="The second end of the connection." type="int" variable="$to">
+          <tag line="145" name="param" description="The second end of the connection." type="int" variable="$to">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="157" name="param" description="Additional information about the connection." type="array" variable="$meta">
+          <tag line="145" name="param" description="Additional information about the connection." type="array" variable="$meta">
             <type by_reference="false">array</type>
           </tag>
-          <tag line="157" name="return" description="p2p_id" type="int">
+          <tag line="145" name="return" description="p2p_id" type="int">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
-        <argument line="166">
+        <argument line="154">
           <name>$from</name>
           <default/>
           <type/>
         </argument>
-        <argument line="166">
+        <argument line="154">
           <name>$to</name>
           <default/>
           <type/>
         </argument>
-        <argument line="166">
+        <argument line="154">
           <name>$meta</name>
           <default>array()</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="201" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="186" package="Core">
         <name>disconnect</name>
         <docblock>
           <description>Disconnect two posts.</description>
           <long-description>
 </long-description>
-          <tag line="195" name="param" description="The first end of the connection." type="int" variable="$from">
+          <tag line="180" name="param" description="The first end of the connection." type="int" variable="$from">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="195" name="param" description="The second end of the connection." type="int" variable="$to">
+          <tag line="180" name="param" description="The second end of the connection." type="int" variable="$to">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
-        <argument line="201">
+        <argument line="186">
           <name>$from</name>
           <default/>
           <type/>
         </argument>
-        <argument line="201">
+        <argument line="186">
           <name>$to</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="214" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="195" package="Core">
         <name>disconnect_all</name>
         <docblock>
           <description>Delete all connections for a certain post.</description>
           <long-description>
 </long-description>
-          <tag line="209" name="param" description="The post id." type="int" variable="$from">
+          <tag line="190" name="param" description="The post id." type="int" variable="$from">
             <type by_reference="false">int</type>
           </tag>
         </docblock>
-        <argument line="214">
+        <argument line="195">
           <name>$from</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="230" package="Core">
-        <name>replace</name>
+      <method final="false" abstract="false" static="false" visibility="public" line="199" package="Core">
+        <name>get_p2p_id</name>
+        <argument line="199">
+          <name>$from</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="199">
+          <name>$to</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="210" package="Core">
+        <name>__call</name>
         <docblock>
-          <description>For one-to-many connections: replaces existing item with a new one.</description>
+          <description>Transforms $this-&gt;get_connections( ... ) into p2p_get_connections( $this-&gt;name, ... ) etc.</description>
           <long-description>
 </long-description>
-          <tag line="221" name="param" description="The first end of the connection." type="int" variable="$from">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="221" name="param" description="The second end of the connection." type="int" variable="$to">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="221" name="param" description="Additional information about the connection." type="array" variable="$meta">
-            <type by_reference="false">array</type>
-          </tag>
-          <tag line="221" name="return" description="p2p_id" type="int">
-            <type by_reference="false">int</type>
-          </tag>
         </docblock>
-        <argument line="230">
-          <name>$from</name>
+        <argument line="210">
+          <name>$method</name>
           <default/>
           <type/>
         </argument>
-        <argument line="230">
-          <name>$to</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="230">
-          <name>$meta</name>
-          <default>array()</default>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="249" package="Core">
-        <name>get_p2p_id</name>
-        <argument line="249">
-          <name>$from</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="249">
-          <name>$to</name>
+        <argument line="210">
+          <name>$args</name>
           <default/>
           <type/>
         </argument>
       </method>
     </class>
   </file>
-  <file path="core/type.php" hash="38c17e05f7f39844b71869d7cb40dac2" package="Core">
+  <file path="core/type.php" hash="2f94066812ad5fae8a132d51a7a0e1d4" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File core/type.php</error>
       <error line="3">No DocBlock was found for Class Generic_Connection_Type</error>
@@ -438,9 +403,12 @@
       <error line="62">No DocBlock was found for Method expand_title</error>
       <error line="85">No DocBlock was found for Method __call</error>
       <notice line="102">Argument $instantiate is missing from the function Docblock</notice>
-      <error line="188">No DocBlock was found for Class P2P_Connection_Type</error>
-      <error line="190">No DocBlock was found for Method __construct</error>
-      <error line="199">No DocBlock was found for Method __get</error>
+      <error line="186">No DocBlock was found for Method get_desc</error>
+      <error line="208">No DocBlock was found for Class P2P_Connection_Type</error>
+      <error line="210">No DocBlock was found for Method __construct</error>
+      <error line="219">No DocBlock was found for Method __get</error>
+      <notice line="250">Argument $from is missing from the function Docblock</notice>
+      <notice line="250">Argument $to is missing from the function Docblock</notice>
     </parse_markers>
     <class final="false" abstract="false" line="3" namespace="default" package="Core">
       <name>Generic_Connection_Type</name>
@@ -602,128 +570,90 @@
           <type/>
         </argument>
       </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="186" package="Core">
+        <name>get_desc</name>
+      </method>
     </class>
-    <class final="false" abstract="false" line="188" namespace="default" package="Core">
+    <class final="false" abstract="false" line="208" namespace="default" package="Core">
       <name>P2P_Connection_Type</name>
       <extends>\Generic_Connection_Type</extends>
       <full_name>\P2P_Connection_Type</full_name>
-      <method final="false" abstract="false" static="false" visibility="public" line="190" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="210" package="Core">
         <name>__construct</name>
-        <argument line="190">
+        <argument line="210">
           <name>$args</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="199" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="219" package="Core">
         <name>__get</name>
-        <argument line="199">
+        <argument line="219">
           <name>$key</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="212" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="232" package="Core">
         <name>get_related</name>
         <docblock>
           <description>Get a list of posts connected to other posts connected to a post.</description>
           <long-description>
 </long-description>
-          <tag line="204" name="param" description="A post id or array of post ids" type="int|array" variable="$post_id">
+          <tag line="224" name="param" description="A post id or array of post ids" type="int|array" variable="$post_id">
             <type by_reference="false">int</type>
             <type by_reference="false">array</type>
           </tag>
-          <tag line="204" name="param" description="Additional query variables to use." type="array" variable="$extra_qv">
+          <tag line="224" name="param" description="Additional query variables to use." type="array" variable="$extra_qv">
             <type by_reference="false">array</type>
           </tag>
-          <tag line="204" name="return" description="False on failure; A WP_Query instance on success." type="bool|object">
+          <tag line="224" name="return" description="False on failure; A WP_Query instance on success." type="bool|object">
             <type by_reference="false">bool</type>
             <type by_reference="false">object</type>
           </tag>
         </docblock>
-        <argument line="212">
+        <argument line="232">
           <name>$post_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="212">
+        <argument line="232">
           <name>$extra_qv</name>
           <default>array()</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="237" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="250" package="Core">
         <name>get_previous</name>
         <docblock>
-          <description>Get the previous post in an ordered connection.</description>
+          <description>Alias for get_prev()</description>
           <long-description>
 </long-description>
-          <tag line="229" name="param" description="The first end of the connection." type="int" variable="$from">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="229" name="param" description="The second end of the connection." type="int" variable="$to">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="229" name="return" description="False on failure, post object on success" type="bool|object">
-            <type by_reference="false">bool</type>
-            <type by_reference="false">object</type>
-          </tag>
         </docblock>
-        <argument line="237">
+        <argument line="250">
           <name>$from</name>
           <default/>
           <type/>
         </argument>
-        <argument line="237">
-          <name>$to</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="249" package="Core">
-        <name>get_next</name>
-        <docblock>
-          <description>Get the next post in an ordered connection.</description>
-          <long-description>
-</long-description>
-          <tag line="241" name="param" description="The first end of the connection." type="int" variable="$from">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="241" name="param" description="The second end of the connection." type="int" variable="$to">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="241" name="return" description="False on failure, post object on success" type="bool|object">
-            <type by_reference="false">bool</type>
-            <type by_reference="false">object</type>
-          </tag>
-        </docblock>
-        <argument line="249">
-          <name>$from</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="249">
+        <argument line="250">
           <name>$to</name>
           <default/>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" line="262" package="Core">
-        <name>get_adjacent</name>
+        <name>get_prev</name>
         <docblock>
-          <description>Get another post in an ordered connection.</description>
+          <description>Get the previous post in an ordered connection.</description>
           <long-description>
 </long-description>
-          <tag line="253" name="param" description="The first end of the connection." type="int" variable="$from">
+          <tag line="254" name="param" description="The first end of the connection." type="int" variable="$from">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="253" name="param" description="The second end of the connection." type="int" variable="$to">
+          <tag line="254" name="param" description="The second end of the connection." type="int" variable="$to">
             <type by_reference="false">int</type>
           </tag>
-          <tag line="253" name="param" description="The position relative to the first parameter" type="int" variable="$which">
-            <type by_reference="false">int</type>
-          </tag>
-          <tag line="253" name="return" description="False on failure, post object on success" type="bool|object">
+          <tag line="254" name="return" description="False on failure, post object on success" type="bool|object">
             <type by_reference="false">bool</type>
             <type by_reference="false">object</type>
           </tag>
@@ -738,7 +668,66 @@
           <default/>
           <type/>
         </argument>
-        <argument line="262">
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="274" package="Core">
+        <name>get_next</name>
+        <docblock>
+          <description>Get the next post in an ordered connection.</description>
+          <long-description>
+</long-description>
+          <tag line="266" name="param" description="The first end of the connection." type="int" variable="$from">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="266" name="param" description="The second end of the connection." type="int" variable="$to">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="266" name="return" description="False on failure, post object on success" type="bool|object">
+            <type by_reference="false">bool</type>
+            <type by_reference="false">object</type>
+          </tag>
+        </docblock>
+        <argument line="274">
+          <name>$from</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="274">
+          <name>$to</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="287" package="Core">
+        <name>get_adjacent</name>
+        <docblock>
+          <description>Get another post in an ordered connection.</description>
+          <long-description>
+</long-description>
+          <tag line="278" name="param" description="The first end of the connection." type="int" variable="$from">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="278" name="param" description="The second end of the connection." type="int" variable="$to">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="278" name="param" description="The position relative to the first parameter" type="int" variable="$which">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="278" name="return" description="False on failure, post object on success" type="bool|object">
+            <type by_reference="false">bool</type>
+            <type by_reference="false">object</type>
+          </tag>
+        </docblock>
+        <argument line="287">
+          <name>$from</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="287">
+          <name>$to</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="287">
           <name>$which</name>
           <default/>
           <type/>
@@ -871,14 +860,14 @@
       </argument>
     </function>
   </file>
-  <file path="core/type-factory.php" hash="7b11094363e17f4ad52173298f1db13c" package="Core">
+  <file path="core/type-factory.php" hash="56cfeac5ee74246edbc74ec6488397e1" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File core/type-factory.php</error>
       <error line="3">No DocBlock was found for Class P2P_Connection_Type_Factory</error>
       <error line="4">No DocBlock was found for Property $instances</error>
       <error line="6">No DocBlock was found for Method register</error>
-      <error line="78">No DocBlock was found for Method get_all_instances</error>
-      <error line="82">No DocBlock was found for Method get_instance</error>
+      <error line="89">No DocBlock was found for Method get_all_instances</error>
+      <error line="93">No DocBlock was found for Method get_instance</error>
     </parse_markers>
     <class final="false" abstract="false" line="3" namespace="default" package="Core">
       <name>P2P_Connection_Type_Factory</name>
@@ -896,12 +885,12 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" line="78" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="89" package="Core">
         <name>get_all_instances</name>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" line="82" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="93" package="Core">
         <name>get_instance</name>
-        <argument line="82">
+        <argument line="93">
           <name>$hash</name>
           <default/>
           <type/>
@@ -909,21 +898,24 @@
       </method>
     </class>
   </file>
-  <file path="core/query.php" hash="7f1b0668337d7b552c0d254fc418b70b" package="Core">
+  <file path="core/query.php" hash="c26082ba0bbba9b565b238510effb3d6" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File core/query.php</error>
       <error line="3">No DocBlock was found for Class P2P_Query</error>
       <error line="5">No DocBlock was found for Method expand_shortcut_qv</error>
       <error line="20">No DocBlock was found for Method get_qv</error>
-      <error line="35">No DocBlock was found for Method alter_clauses</error>
-      <error line="108">No DocBlock was found for Method find_direction</error>
-      <error line="120">No DocBlock was found for Method choose_side</error>
+      <notice line="50">Argument $q is missing from the function Docblock</notice>
+      <notice line="50">Argument $item is missing from the function Docblock</notice>
+      <notice line="50">Argument $object_type is missing from the function Docblock</notice>
+      <error line="92">No DocBlock was found for Method alter_clauses</error>
+      <error line="179">No DocBlock was found for Method find_direction</error>
+      <error line="191">No DocBlock was found for Method choose_side</error>
     </parse_markers>
     <class final="false" abstract="false" line="3" namespace="default" package="Core">
       <name>P2P_Query</name>
       <extends/>
       <full_name>\P2P_Query</full_name>
-      <method final="false" abstract="false" static="false" visibility="public" line="5" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="5" package="Core">
         <name>expand_shortcut_qv</name>
         <argument line="5">
           <name>$q</name>
@@ -931,7 +923,7 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="20" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="20" package="Core">
         <name>get_qv</name>
         <argument line="20">
           <name>$q</name>
@@ -939,55 +931,81 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="35" package="Core">
-        <name>alter_clauses</name>
-        <argument line="35">
-          <name>$clauses</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="35">
+      <method final="false" abstract="false" static="true" visibility="public" line="50" package="Core">
+        <name>expand_connected_type</name>
+        <docblock>
+          <description>Sets 'p2p_type' =&gt; array( connection_type =&gt; direction )</description>
+          <long-description>
+</long-description>
+          <tag line="42" name="return" description="null means ignore current query false means trigger 404 true means proceed" type="\:">
+            <type by_reference="false">\:</type>
+          </tag>
+        </docblock>
+        <argument line="50">
           <name>$q</name>
           <default/>
           <type/>
         </argument>
-        <argument line="35">
-          <name>$main_id_column</name>
+        <argument line="50">
+          <name>$item</name>
           <default/>
           <type/>
         </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="108" package="Core">
-        <name>find_direction</name>
-        <argument line="108">
-          <name>$ctype</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="108">
-          <name>$arg</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="108">
+        <argument line="50">
           <name>$object_type</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" line="120" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="92" package="Core">
+        <name>alter_clauses</name>
+        <argument line="92">
+          <name>$clauses</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="92">
+          <name>$q</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="92">
+          <name>$main_id_column</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" line="179" package="Core">
+        <name>find_direction</name>
+        <argument line="179">
+          <name>$ctype</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="179">
+          <name>$arg</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="179">
+          <name>$object_type</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" line="191" package="Core">
         <name>choose_side</name>
-        <argument line="120">
+        <argument line="191">
           <name>$current</name>
           <default/>
           <type/>
         </argument>
-        <argument line="120">
+        <argument line="191">
           <name>$from</name>
           <default/>
           <type/>
         </argument>
-        <argument line="120">
+        <argument line="191">
           <name>$to</name>
           <default/>
           <type/>
@@ -995,7 +1013,7 @@
       </method>
     </class>
   </file>
-  <file path="core/widget.php" hash="53f418ceea5b0033256c5e9cadc16435" package="Core">
+  <file path="core/widget.php" hash="4e03557627beb42222a3dd3853fe0213" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File core/widget.php</error>
       <error line="3">No DocBlock was found for Class P2P_Widget</error>
@@ -1004,8 +1022,6 @@
       <error line="14">No DocBlock was found for Method __construct</error>
       <error line="20">No DocBlock was found for Method form</error>
       <error line="54">No DocBlock was found for Method widget</error>
-      <error line="98">No DocBlock was found for Method ctype_label</error>
-      <error line="118">No DocBlock was found for Method post_type_label</error>
     </parse_markers>
     <class final="false" abstract="false" line="3" namespace="default" package="Core">
       <name>P2P_Widget</name>
@@ -1043,25 +1059,9 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" line="98" package="Core">
-        <name>ctype_label</name>
-        <argument line="98">
-          <name>$ctype</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="private" line="118" package="Core">
-        <name>post_type_label</name>
-        <argument line="118">
-          <name>$post_type</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
     </class>
   </file>
-  <file path="core/storage.php" hash="6186ea9c1c50a5f701f546de78aec3dc" package="Core">
+  <file path="core/storage.php" hash="11eb0503eedf213f038a16c50c55a335" package="Core">
     <docblock>
       <description>Handles various db-related tasks</description>
       <long-description>
@@ -1071,11 +1071,10 @@
       <error line="3">No Page-level DocBlock was found in file core/storage.php</error>
       <error line="8">No DocBlock was found for Property $version</error>
       <error line="10">No DocBlock was found for Method init</error>
-      <error line="19">No DocBlock was found for Method maybe_install</error>
-      <error line="46">No DocBlock was found for Method install</error>
-      <error line="69">No DocBlock was found for Method upgrade</error>
-      <error line="98">No DocBlock was found for Method uninstall</error>
-      <error line="105">No DocBlock was found for Method deleted_post</error>
+      <error line="17">No DocBlock was found for Method install</error>
+      <error line="40">No DocBlock was found for Method upgrade</error>
+      <error line="70">No DocBlock was found for Method uninstall</error>
+      <error line="77">No DocBlock was found for Method deleted_post</error>
     </parse_markers>
     <class final="false" abstract="false" line="6" namespace="default" package="Core">
       <name>P2P_Storage</name>
@@ -1090,24 +1089,21 @@
         <name>$version</name>
         <default>4</default>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" line="10" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="10" package="Core">
         <name>init</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="19" package="Core">
-        <name>maybe_install</name>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="46" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="17" package="Core">
         <name>install</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="69" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="40" package="Core">
         <name>upgrade</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="98" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="70" package="Core">
         <name>uninstall</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="105" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="77" package="Core">
         <name>deleted_post</name>
-        <argument line="105">
+        <argument line="77">
           <name>$post_id</name>
           <default/>
           <type/>
@@ -1115,7 +1111,7 @@
       </method>
     </class>
   </file>
-  <file path="core/side.php" hash="8e14bd4ce65e11fba25b037fdf8e9a3c" package="Core">
+  <file path="core/side.php" hash="dc4e01a23483315dd442a602a9f79cfa" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File core/side.php</error>
       <error line="3">No DocBlock was found for Constant ADMIN_BOX_PER_PAGE</error>
@@ -1127,31 +1123,34 @@
       <error line="21">No DocBlock was found for Property $post_type</error>
       <error line="23">No DocBlock was found for Method __construct</error>
       <error line="29">No DocBlock was found for Method get_base_qv</error>
-      <error line="37">No DocBlock was found for Method get_title</error>
-      <error line="41">No DocBlock was found for Method get_labels</error>
-      <error line="45">No DocBlock was found for Method check_capability</error>
-      <error line="49">No DocBlock was found for Method do_query</error>
-      <error line="53">No DocBlock was found for Method abstract_query</error>
-      <error line="61">No DocBlock was found for Property $admin_box_qv</error>
-      <error line="67">No DocBlock was found for Method get_connections_qv</error>
-      <error line="73">No DocBlock was found for Method get_connectable_qv</error>
-      <critical line="88">No short description for method item_recognize</critical>
-      <error line="113">No DocBlock was found for Method get_ptype</error>
-      <error line="117">No DocBlock was found for Method item_exists</error>
-      <error line="121">No DocBlock was found for Method item_title</error>
-      <error line="127">No DocBlock was found for Class P2P_Side_Attachment</error>
-      <error line="129">No DocBlock was found for Method __construct</error>
-      <error line="137">No DocBlock was found for Class P2P_Side_User</error>
-      <error line="139">No DocBlock was found for Method get_title</error>
-      <error line="143">No DocBlock was found for Method get_labels</error>
-      <error line="151">No DocBlock was found for Method check_capability</error>
-      <error line="155">No DocBlock was found for Method do_query</error>
-      <error line="159">No DocBlock was found for Method abstract_query</error>
-      <error line="167">No DocBlock was found for Method get_connections_qv</error>
-      <error line="171">No DocBlock was found for Method get_connectable_qv</error>
-      <error line="187">No DocBlock was found for Method item_recognize</error>
-      <error line="191">No DocBlock was found for Method item_exists</error>
-      <error line="195">No DocBlock was found for Method item_title</error>
+      <error line="37">No DocBlock was found for Method get_desc</error>
+      <error line="41">No DocBlock was found for Method post_type_label</error>
+      <error line="46">No DocBlock was found for Method get_title</error>
+      <error line="50">No DocBlock was found for Method get_labels</error>
+      <error line="54">No DocBlock was found for Method check_capability</error>
+      <error line="58">No DocBlock was found for Method do_query</error>
+      <error line="62">No DocBlock was found for Method abstract_query</error>
+      <error line="70">No DocBlock was found for Property $admin_box_qv</error>
+      <error line="76">No DocBlock was found for Method get_connections_qv</error>
+      <error line="82">No DocBlock was found for Method get_connectable_qv</error>
+      <critical line="97">No short description for method item_recognize</critical>
+      <error line="122">No DocBlock was found for Method get_ptype</error>
+      <error line="126">No DocBlock was found for Method item_exists</error>
+      <error line="130">No DocBlock was found for Method item_title</error>
+      <error line="136">No DocBlock was found for Class P2P_Side_Attachment</error>
+      <error line="138">No DocBlock was found for Method __construct</error>
+      <error line="146">No DocBlock was found for Class P2P_Side_User</error>
+      <error line="148">No DocBlock was found for Method get_desc</error>
+      <error line="152">No DocBlock was found for Method get_title</error>
+      <error line="156">No DocBlock was found for Method get_labels</error>
+      <error line="164">No DocBlock was found for Method check_capability</error>
+      <error line="168">No DocBlock was found for Method do_query</error>
+      <error line="172">No DocBlock was found for Method abstract_query</error>
+      <error line="180">No DocBlock was found for Method get_connections_qv</error>
+      <error line="184">No DocBlock was found for Method get_connectable_qv</error>
+      <error line="200">No DocBlock was found for Method item_recognize</error>
+      <error line="204">No DocBlock was found for Method item_exists</error>
+      <error line="208">No DocBlock was found for Method item_title</error>
     </parse_markers>
     <constant namespace="default" line="3" package="Core">
       <name>ADMIN_BOX_PER_PAGE</name>
@@ -1185,7 +1184,7 @@
         <name>$post_type</name>
         <default>array()</default>
       </property>
-      <property final="false" static="true" visibility="private" line="61" package="Core">
+      <property final="false" static="true" visibility="private" line="70" package="Core">
         <name>$admin_box_qv</name>
         <default>array(
 		'update_post_term_cache' =&gt; false</default>
@@ -1202,179 +1201,193 @@
         <name>get_base_qv</name>
       </method>
       <method final="false" abstract="false" static="false" visibility="public" line="37" package="Core">
+        <name>get_desc</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" line="41" package="Core">
+        <name>post_type_label</name>
+        <argument line="41">
+          <name>$post_type</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="46" package="Core">
         <name>get_title</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="41" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="50" package="Core">
         <name>get_labels</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="45" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="54" package="Core">
         <name>check_capability</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="49" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="58" package="Core">
         <name>do_query</name>
-        <argument line="49">
+        <argument line="58">
           <name>$args</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="53" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="62" package="Core">
         <name>abstract_query</name>
-        <argument line="53">
+        <argument line="62">
           <name>$query</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="67" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="76" package="Core">
         <name>get_connections_qv</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="73" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="82" package="Core">
         <name>get_connectable_qv</name>
-        <argument line="73">
+        <argument line="82">
           <name>$item_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="73">
+        <argument line="82">
           <name>$page</name>
           <default/>
           <type/>
         </argument>
-        <argument line="73">
+        <argument line="82">
           <name>$search</name>
           <default/>
           <type/>
         </argument>
-        <argument line="73">
+        <argument line="82">
           <name>$to_exclude</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="91" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="100" package="Core">
         <name>item_recognize</name>
         <docblock>
           <description/>
           <long-description>
 </long-description>
-          <tag line="88" name="param" description="A post type, a post id, a post object, an array of post ids or of objects." type="mixed" variable="$arg">
+          <tag line="97" name="param" description="A post type, a post id, a post object, an array of post ids or of objects." type="mixed" variable="$arg">
             <type by_reference="false">mixed</type>
           </tag>
         </docblock>
-        <argument line="91">
+        <argument line="100">
           <name>$arg</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" line="113" package="Core">
+      <method final="false" abstract="false" static="false" visibility="protected" line="122" package="Core">
         <name>get_ptype</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="117" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="126" package="Core">
         <name>item_exists</name>
-        <argument line="117">
+        <argument line="126">
           <name>$item_id</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="121" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="130" package="Core">
         <name>item_title</name>
-        <argument line="121">
+        <argument line="130">
           <name>$item</name>
           <default/>
           <type/>
         </argument>
       </method>
     </class>
-    <class final="false" abstract="false" line="127" namespace="default" package="Core">
+    <class final="false" abstract="false" line="136" namespace="default" package="Core">
       <name>P2P_Side_Attachment</name>
       <extends>\P2P_Side_Post</extends>
       <full_name>\P2P_Side_Attachment</full_name>
-      <method final="false" abstract="false" static="false" visibility="public" line="129" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="138" package="Core">
         <name>__construct</name>
-        <argument line="129">
+        <argument line="138">
           <name>$query_vars</name>
           <default/>
           <type/>
         </argument>
       </method>
     </class>
-    <class final="false" abstract="false" line="137" namespace="default" package="Core">
+    <class final="false" abstract="false" line="146" namespace="default" package="Core">
       <name>P2P_Side_User</name>
       <extends>\P2P_Side</extends>
       <full_name>\P2P_Side_User</full_name>
-      <method final="false" abstract="false" static="false" visibility="public" line="139" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="148" package="Core">
+        <name>get_desc</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="152" package="Core">
         <name>get_title</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="143" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="156" package="Core">
         <name>get_labels</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="151" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="164" package="Core">
         <name>check_capability</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="155" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="168" package="Core">
         <name>do_query</name>
-        <argument line="155">
+        <argument line="168">
           <name>$args</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="159" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="172" package="Core">
         <name>abstract_query</name>
-        <argument line="159">
+        <argument line="172">
           <name>$query</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="167" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="180" package="Core">
         <name>get_connections_qv</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="171" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="184" package="Core">
         <name>get_connectable_qv</name>
-        <argument line="171">
+        <argument line="184">
           <name>$item_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="171">
+        <argument line="184">
           <name>$page</name>
           <default/>
           <type/>
         </argument>
-        <argument line="171">
+        <argument line="184">
           <name>$search</name>
           <default/>
           <type/>
         </argument>
-        <argument line="171">
+        <argument line="184">
           <name>$to_exclude</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="187" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="200" package="Core">
         <name>item_recognize</name>
-        <argument line="187">
+        <argument line="200">
           <name>$arg</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="191" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="204" package="Core">
         <name>item_exists</name>
-        <argument line="191">
+        <argument line="204">
           <name>$item_id</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="195" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="208" package="Core">
         <name>item_title</name>
-        <argument line="195">
+        <argument line="208">
           <name>$item</name>
           <default/>
           <type/>
@@ -1382,22 +1395,21 @@
       </method>
     </class>
   </file>
-  <file path="core/query-user.php" hash="07ad08d04f23bd9cc0ea3775c4686f62" package="Core">
+  <file path="core/query-user.php" hash="56ab771084cde2e115dd98219918661d" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File core/query-user.php</error>
       <error line="3">No DocBlock was found for Class P2P_User_Query</error>
       <error line="5">No DocBlock was found for Method init</error>
       <error line="9">No DocBlock was found for Method pre_user_query</error>
-      <error line="57">No DocBlock was found for Method expand_connected_type</error>
     </parse_markers>
     <class final="false" abstract="false" line="3" namespace="default" package="Core">
       <name>P2P_User_Query</name>
       <extends/>
       <full_name>\P2P_User_Query</full_name>
-      <method final="false" abstract="false" static="false" visibility="public" line="5" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="5" package="Core">
         <name>init</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="9" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="9" package="Core">
         <name>pre_user_query</name>
         <argument line="9">
           <name>$query</name>
@@ -1405,17 +1417,9 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="57" package="Core">
-        <name>expand_connected_type</name>
-        <argument line="57">
-          <name>$q</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
     </class>
   </file>
-  <file path="core/api.php" hash="6433b8acec4549f68e907a0c97e686f3" package="Core">
+  <file path="core/api.php" hash="5d50045150626940259b251bcaaad81c" package="Core">
     <docblock>
       <description>Register a connection between two post types.</description>
       <long-description>&lt;p&gt;This creates the appropriate meta box in the admin edit screen.&lt;/p&gt;
@@ -1451,15 +1455,13 @@
     </docblock>
     <parse_markers>
       <error line="3">No Page-level DocBlock was found in file core/api.php</error>
-      <critical line="96">No short description for function _p2p_back_compat_args</critical>
-      <notice line="97">Argument $argv is missing from the function Docblock</notice>
-      <critical line="200">No short description for function _p2p_get_connections</critical>
-      <notice line="201">Argument $p2p_type is missing from the function Docblock</notice>
-      <notice line="201">Argument $args is missing from the function Docblock</notice>
-      <error line="330">No DocBlock was found for Function p2p_get_meta</error>
-      <error line="334">No DocBlock was found for Function p2p_update_meta</error>
-      <error line="338">No DocBlock was found for Function p2p_add_meta</error>
-      <error line="342">No DocBlock was found for Function p2p_delete_meta</error>
+      <critical line="155">No short description for function _p2p_get_connections</critical>
+      <notice line="156">Argument $p2p_type is missing from the function Docblock</notice>
+      <notice line="156">Argument $args is missing from the function Docblock</notice>
+      <error line="285">No DocBlock was found for Function p2p_get_meta</error>
+      <error line="289">No DocBlock was found for Function p2p_update_meta</error>
+      <error line="293">No DocBlock was found for Function p2p_add_meta</error>
+      <error line="297">No DocBlock was found for Function p2p_delete_meta</error>
     </parse_markers>
     <function namespace="default" line="46" package="Core">
       <name>p2p_register_connection_type</name>
@@ -1503,323 +1505,308 @@
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="97" package="Core">
-      <name>_p2p_back_compat_args</name>
-      <type>function</type>
-      <docblock>
-        <description/>
-        <long-description>
-</long-description>
-        <tag line="96" name="internal" description=""/>
-      </docblock>
-      <argument line="97">
-        <name>$argv</name>
-        <default/>
-        <type/>
-      </argument>
-    </function>
-    <function namespace="default" line="131" package="Core">
+    <function namespace="default" line="86" package="Core">
       <name>p2p_type</name>
       <type>function</type>
       <docblock>
         <description>Get a connection type.</description>
         <long-description>
 </long-description>
-        <tag line="124" name="param" description="" type="string" variable="$p2p_type">
+        <tag line="79" name="param" description="" type="string" variable="$p2p_type">
           <type by_reference="false">string</type>
         </tag>
-        <tag line="124" name="return" description="False if connection type not found, P2P_Connection_Type instance on success." type="bool|object">
+        <tag line="79" name="return" description="False if connection type not found, P2P_Connection_Type instance on success." type="bool|object">
           <type by_reference="false">bool</type>
           <type by_reference="false">object</type>
         </tag>
       </docblock>
-      <argument line="131">
+      <argument line="86">
         <name>$p2p_type</name>
         <default/>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="143" package="Core">
+    <function namespace="default" line="98" package="Core">
       <name>p2p_connection_exists</name>
       <type>function</type>
       <docblock>
         <description>Check if a certain connection exists.</description>
         <long-description>
 </long-description>
-        <tag line="135" name="param" description="A valid connection type." type="string" variable="$p2p_type">
+        <tag line="90" name="param" description="A valid connection type." type="string" variable="$p2p_type">
           <type by_reference="false">string</type>
         </tag>
-        <tag line="135" name="param" description="Query args." type="array" variable="$args">
+        <tag line="90" name="param" description="Query args." type="array" variable="$args">
           <type by_reference="false">array</type>
         </tag>
-        <tag line="135" name="return" description="" type="bool">
+        <tag line="90" name="return" description="" type="bool">
           <type by_reference="false">bool</type>
         </tag>
       </docblock>
-      <argument line="143">
+      <argument line="98">
         <name>$p2p_type</name>
         <default/>
         <type/>
       </argument>
-      <argument line="143">
+      <argument line="98">
         <name>$args</name>
         <default>array()</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="165" package="Core">
+    <function namespace="default" line="120" package="Core">
       <name>p2p_get_connections</name>
       <type>function</type>
       <docblock>
         <description>Retrieve connections.</description>
         <long-description>
 </long-description>
-        <tag line="151" name="param" description="A valid connection type." type="string" variable="$p2p_type">
+        <tag line="106" name="param" description="A valid connection type." type="string" variable="$p2p_type">
           <type by_reference="false">string</type>
         </tag>
-        <tag line="151" name="param" description="Query args: - 'direction': Can be 'from', 'to' or 'any' - 'from': Object id. The first end of the connection. (optional) - 'to': Object id. The second end of the connection. (optional) - 'fields': Which field of the connection to return. Can be: 'all', 'object_id', 'p2p_from', 'p2p_to', 'p2p_id' or 'count'" type="array" variable="$args">
+        <tag line="106" name="param" description="Query args: - 'direction': Can be 'from', 'to' or 'any' - 'from': Object id. The first end of the connection. (optional) - 'to': Object id. The second end of the connection. (optional) - 'fields': Which field of the connection to return. Can be: 'all', 'object_id', 'p2p_from', 'p2p_to', 'p2p_id' or 'count'" type="array" variable="$args">
           <type by_reference="false">array</type>
         </tag>
-        <tag line="151" name="return" description="" type="array">
+        <tag line="106" name="return" description="" type="array">
           <type by_reference="false">array</type>
         </tag>
       </docblock>
-      <argument line="165">
+      <argument line="120">
         <name>$p2p_type</name>
         <default/>
         <type/>
       </argument>
-      <argument line="165">
+      <argument line="120">
         <name>$args</name>
         <default>array()</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="201" package="Core">
+    <function namespace="default" line="156" package="Core">
       <name>_p2p_get_connections</name>
       <type>function</type>
       <docblock>
         <description/>
         <long-description>
 </long-description>
-        <tag line="200" name="internal" description=""/>
+        <tag line="155" name="internal" description=""/>
       </docblock>
-      <argument line="201">
+      <argument line="156">
         <name>$p2p_type</name>
         <default/>
         <type/>
       </argument>
-      <argument line="201">
+      <argument line="156">
         <name>$args</name>
         <default>array()</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="243" package="Core">
+    <function namespace="default" line="198" package="Core">
       <name>p2p_get_connection</name>
       <type>function</type>
       <docblock>
         <description>Retrieve a single connection.</description>
         <long-description>
 </long-description>
-        <tag line="236" name="param" description="The connection id." type="int" variable="$p2p_id">
+        <tag line="191" name="param" description="The connection id." type="int" variable="$p2p_id">
           <type by_reference="false">int</type>
         </tag>
-        <tag line="236" name="return" description="" type="object">
+        <tag line="191" name="return" description="" type="object">
           <type by_reference="false">object</type>
         </tag>
       </docblock>
-      <argument line="243">
+      <argument line="198">
         <name>$p2p_id</name>
         <default/>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="257" package="Core">
+    <function namespace="default" line="212" package="Core">
       <name>p2p_create_connection</name>
       <type>function</type>
       <docblock>
         <description>Create a connection.</description>
         <long-description>
 </long-description>
-        <tag line="249" name="param" description="A valid connection type." type="int" variable="$p2p_type">
+        <tag line="204" name="param" description="A valid connection type." type="int" variable="$p2p_type">
           <type by_reference="false">int</type>
         </tag>
-        <tag line="249" name="param" description="Connection information." type="array" variable="$args">
+        <tag line="204" name="param" description="Connection information." type="array" variable="$args">
           <type by_reference="false">array</type>
         </tag>
-        <tag line="249" name="return" description="False on failure, p2p_id on success." type="bool|int">
+        <tag line="204" name="return" description="False on failure, p2p_id on success." type="bool|int">
           <type by_reference="false">bool</type>
           <type by_reference="false">int</type>
         </tag>
       </docblock>
-      <argument line="257">
+      <argument line="212">
         <name>$p2p_type</name>
         <default/>
         <type/>
       </argument>
-      <argument line="257">
+      <argument line="212">
         <name>$args</name>
         <default/>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="301" package="Core">
+    <function namespace="default" line="256" package="Core">
       <name>p2p_delete_connections</name>
       <type>function</type>
       <docblock>
         <description>Delete one or more connections.</description>
         <long-description>
 </long-description>
-        <tag line="293" name="param" description="A valid connection type." type="int" variable="$p2p_type">
+        <tag line="248" name="param" description="A valid connection type." type="int" variable="$p2p_type">
           <type by_reference="false">int</type>
         </tag>
-        <tag line="293" name="param" description="Connection information." type="array" variable="$args">
+        <tag line="248" name="param" description="Connection information." type="array" variable="$args">
           <type by_reference="false">array</type>
         </tag>
-        <tag line="293" name="return" description="Number of connections deleted" type="int">
+        <tag line="248" name="return" description="Number of connections deleted" type="int">
           <type by_reference="false">int</type>
         </tag>
       </docblock>
-      <argument line="301">
+      <argument line="256">
         <name>$p2p_type</name>
         <default/>
         <type/>
       </argument>
-      <argument line="301">
+      <argument line="256">
         <name>$args</name>
         <default>array()</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="314" package="Core">
+    <function namespace="default" line="269" package="Core">
       <name>p2p_delete_connection</name>
       <type>function</type>
       <docblock>
         <description>Delete connections using p2p_ids.</description>
         <long-description>
 </long-description>
-        <tag line="307" name="param" description="Connection ids" type="int|array" variable="$p2p_id">
+        <tag line="262" name="param" description="Connection ids" type="int|array" variable="$p2p_id">
           <type by_reference="false">int</type>
           <type by_reference="false">array</type>
         </tag>
-        <tag line="307" name="return" description="Number of connections deleted" type="int">
+        <tag line="262" name="return" description="Number of connections deleted" type="int">
           <type by_reference="false">int</type>
         </tag>
       </docblock>
-      <argument line="314">
+      <argument line="269">
         <name>$p2p_id</name>
         <default/>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="330" package="Core">
+    <function namespace="default" line="285" package="Core">
       <name>p2p_get_meta</name>
       <type>function</type>
-      <argument line="330">
+      <argument line="285">
         <name>$p2p_id</name>
         <default/>
         <type/>
       </argument>
-      <argument line="330">
+      <argument line="285">
         <name>$key</name>
         <default>''</default>
         <type/>
       </argument>
-      <argument line="330">
+      <argument line="285">
         <name>$single</name>
         <default>false</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="334" package="Core">
+    <function namespace="default" line="289" package="Core">
       <name>p2p_update_meta</name>
       <type>function</type>
-      <argument line="334">
+      <argument line="289">
         <name>$p2p_id</name>
         <default/>
         <type/>
       </argument>
-      <argument line="334">
+      <argument line="289">
         <name>$key</name>
         <default/>
         <type/>
       </argument>
-      <argument line="334">
+      <argument line="289">
         <name>$value</name>
         <default/>
         <type/>
       </argument>
-      <argument line="334">
+      <argument line="289">
         <name>$prev_value</name>
         <default>''</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="338" package="Core">
+    <function namespace="default" line="293" package="Core">
       <name>p2p_add_meta</name>
       <type>function</type>
-      <argument line="338">
+      <argument line="293">
         <name>$p2p_id</name>
         <default/>
         <type/>
       </argument>
-      <argument line="338">
+      <argument line="293">
         <name>$key</name>
         <default/>
         <type/>
       </argument>
-      <argument line="338">
+      <argument line="293">
         <name>$value</name>
         <default/>
         <type/>
       </argument>
-      <argument line="338">
+      <argument line="293">
         <name>$unique</name>
         <default>false</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="342" package="Core">
+    <function namespace="default" line="297" package="Core">
       <name>p2p_delete_meta</name>
       <type>function</type>
-      <argument line="342">
+      <argument line="297">
         <name>$p2p_id</name>
         <default/>
         <type/>
       </argument>
-      <argument line="342">
+      <argument line="297">
         <name>$key</name>
         <default/>
         <type/>
       </argument>
-      <argument line="342">
+      <argument line="297">
         <name>$value</name>
         <default>''</default>
         <type/>
       </argument>
     </function>
-    <function namespace="default" line="352" package="Core">
+    <function namespace="default" line="307" package="Core">
       <name>p2p_list_posts</name>
       <type>function</type>
       <docblock>
         <description>List some posts.</description>
         <long-description>
 </long-description>
-        <tag line="346" name="param" description="A WP_Query instance, or a list of post objects" type="object|array" variable="$posts">
+        <tag line="301" name="param" description="A WP_Query instance, or a list of post objects" type="object|array" variable="$posts">
           <type by_reference="false">object</type>
           <type by_reference="false">array</type>
         </tag>
-        <tag line="346" name="param" description="(optional)" type="array" variable="$args">
+        <tag line="301" name="param" description="(optional)" type="array" variable="$args">
           <type by_reference="false">array</type>
         </tag>
       </docblock>
-      <argument line="352">
+      <argument line="307">
         <name>$posts</name>
         <default/>
         <type/>
       </argument>
-      <argument line="352">
+      <argument line="307">
         <name>$args</name>
         <default>array()</default>
         <type/>
@@ -1883,18 +1870,19 @@
       </method>
     </class>
   </file>
-  <file path="admin/box-factory.php" hash="4bc0237aca7dcb40475aacc5f81a4df9" package="Core">
+  <file path="admin/box-factory.php" hash="316a41555995f312d03e6ff41f0f7994" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File admin/box-factory.php</error>
       <error line="3">No DocBlock was found for Constant P2P_BOX_NONCE</error>
       <critical line="5">No short description for class P2P_Box_Factory</critical>
       <error line="10">No DocBlock was found for Property $box_args</error>
-      <error line="12">No DocBlock was found for Method register</error>
-      <error line="41">No DocBlock was found for Method init</error>
-      <error line="47">No DocBlock was found for Method add_meta_boxes</error>
-      <error line="84">No DocBlock was found for Method get_visible_directions</error>
-      <notice line="102">Argument $post_id is missing from the function Docblock</notice>
-      <notice line="102">Argument $post is missing from the function Docblock</notice>
+      <error line="12">No DocBlock was found for Method init</error>
+      <error line="20">No DocBlock was found for Method filter_args</error>
+      <error line="40">No DocBlock was found for Method register</error>
+      <error line="69">No DocBlock was found for Method add_meta_boxes</error>
+      <error line="106">No DocBlock was found for Method get_visible_directions</error>
+      <notice line="124">Argument $post_id is missing from the function Docblock</notice>
+      <notice line="124">Argument $post is missing from the function Docblock</notice>
     </parse_markers>
     <constant namespace="default" line="3" package="Core">
       <name>P2P_BOX_NONCE</name>
@@ -1915,66 +1903,74 @@
         <default>array()</default>
       </property>
       <method final="false" abstract="false" static="true" visibility="public" line="12" package="Core">
+        <name>init</name>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" line="20" package="Core">
+        <name>filter_args</name>
+        <argument line="20">
+          <name>$args</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" line="40" package="Core">
         <name>register</name>
-        <argument line="12">
+        <argument line="40">
           <name>$p2p_type</name>
           <default/>
           <type/>
         </argument>
-        <argument line="12">
+        <argument line="40">
           <name>$box_args</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" line="41" package="Core">
-        <name>init</name>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" line="47" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="69" package="Core">
         <name>add_meta_boxes</name>
-        <argument line="47">
+        <argument line="69">
           <name>$post_type</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="private" line="84" package="Core">
+      <method final="false" abstract="false" static="true" visibility="private" line="106" package="Core">
         <name>get_visible_directions</name>
-        <argument line="84">
+        <argument line="106">
           <name>$post_type</name>
           <default/>
           <type/>
         </argument>
-        <argument line="84">
+        <argument line="106">
           <name>$ctype</name>
           <default/>
           <type/>
         </argument>
-        <argument line="84">
+        <argument line="106">
           <name>$show_ui</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" line="102" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="124" package="Core">
         <name>save_post</name>
         <docblock>
           <description>Collect metadata from all boxes.</description>
           <long-description>
 </long-description>
         </docblock>
-        <argument line="102">
+        <argument line="124">
           <name>$post_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="102">
+        <argument line="124">
           <name>$post</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" line="140" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="156" package="Core">
         <name>wp_ajax_p2p_box</name>
         <docblock>
           <description>Controller for all box ajax requests.</description>
@@ -1984,13 +1980,59 @@
       </method>
     </class>
   </file>
-  <file path="admin/column-factory.php" hash="69b3197a6c68eee75691e182de86b672" package="Core">
+  <file path="admin/tools.php" hash="ef4874b0aff618a5c1cd5d680db8e6db" package="Core">
+    <parse_markers>
+      <error line="1">No DocBlock was found for File admin/tools.php</error>
+      <error line="3">No DocBlock was found for Class P2P_Tools_Page</error>
+      <error line="5">No DocBlock was found for Method setup</error>
+      <error line="15">No DocBlock was found for Method maybe_install</error>
+      <error line="42">No DocBlock was found for Method form_handler</error>
+      <error line="70">No DocBlock was found for Method page_head</error>
+      <error line="74">No DocBlock was found for Method page_content</error>
+      <error line="104">No DocBlock was found for Method get_connection_counts</error>
+      <error line="125">No DocBlock was found for Method get_dropdown</error>
+    </parse_markers>
+    <class final="false" abstract="false" line="3" namespace="default" package="Core">
+      <name>P2P_Tools_Page</name>
+      <extends>\scbAdminPage</extends>
+      <full_name>\P2P_Tools_Page</full_name>
+      <method final="false" abstract="false" static="false" visibility="public" line="5" package="Core">
+        <name>setup</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="15" package="Core">
+        <name>maybe_install</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="42" package="Core">
+        <name>form_handler</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="70" package="Core">
+        <name>page_head</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" line="74" package="Core">
+        <name>page_content</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" line="104" package="Core">
+        <name>get_connection_counts</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" line="125" package="Core">
+        <name>get_dropdown</name>
+        <argument line="125">
+          <name>$p2p_type</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="admin/column-factory.php" hash="a5a155b003070339ffebb1d96c1aa91b" package="Core">
     <parse_markers>
       <error line="1">No DocBlock was found for File admin/column-factory.php</error>
       <error line="3">No DocBlock was found for Class P2P_Column_Factory</error>
       <error line="5">No DocBlock was found for Property $column_args</error>
-      <error line="7">No DocBlock was found for Method register</error>
-      <error line="19">No DocBlock was found for Method add_columns</error>
+      <error line="7">No DocBlock was found for Method init</error>
+      <error line="13">No DocBlock was found for Method filter_args</error>
+      <error line="25">No DocBlock was found for Method register</error>
+      <error line="37">No DocBlock was found for Method add_columns</error>
     </parse_markers>
     <class final="false" abstract="false" line="3" namespace="default" package="Core">
       <name>P2P_Column_Factory</name>
@@ -2001,24 +2043,86 @@
         <default>array()</default>
       </property>
       <method final="false" abstract="false" static="true" visibility="public" line="7" package="Core">
+        <name>init</name>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" line="13" package="Core">
+        <name>filter_args</name>
+        <argument line="13">
+          <name>$args</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" line="25" package="Core">
         <name>register</name>
-        <argument line="7">
+        <argument line="25">
           <name>$p2p_type</name>
           <default/>
           <type/>
         </argument>
-        <argument line="7">
+        <argument line="25">
           <name>$column_args</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="19" package="Core">
+      <method final="false" abstract="false" static="true" visibility="public" line="37" package="Core">
         <name>add_columns</name>
       </method>
     </class>
   </file>
-  <file path="admin/box.php" hash="e93b9f5afd6a6d1ddf1b14a125ca9533" package="Administration">
+  <file path="admin/mustache.php" hash="548f598afb5332fe5e8491508f197ef7" package="Core">
+    <docblock>
+      <description/>
+      <long-description>
+</long-description>
+      <tag line="3" name="internal" description=""/>
+    </docblock>
+    <parse_markers>
+      <error line="3">No Page-level DocBlock was found in file admin/mustache.php</error>
+      <critical line="3">No short description for class P2P_Mustache</critical>
+      <error line="8">No DocBlock was found for Property $loader</error>
+      <error line="9">No DocBlock was found for Property $mustache</error>
+      <error line="11">No DocBlock was found for Method init</error>
+      <error line="23">No DocBlock was found for Method render</error>
+    </parse_markers>
+    <class final="false" abstract="true" line="6" namespace="default" package="Core">
+      <name>P2P_Mustache</name>
+      <extends/>
+      <full_name>\P2P_Mustache</full_name>
+      <docblock>
+        <description/>
+        <long-description>
+</long-description>
+        <tag line="3" name="internal" description=""/>
+      </docblock>
+      <property final="false" static="true" visibility="private" line="8" package="Core">
+        <name>$loader</name>
+        <default/>
+      </property>
+      <property final="false" static="true" visibility="private" line="9" package="Core">
+        <name>$mustache</name>
+        <default/>
+      </property>
+      <method final="false" abstract="false" static="true" visibility="public" line="11" package="Core">
+        <name>init</name>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" line="23" package="Core">
+        <name>render</name>
+        <argument line="23">
+          <name>$template</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="23">
+          <name>$data</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="admin/box.php" hash="ba8665ec050ad70a266d0de4d2c5afbc" package="Administration">
     <docblock>
       <description/>
       <long-description>
@@ -2039,22 +2143,23 @@
       <error line="44">No DocBlock was found for Method init_columns</error>
       <error line="61">No DocBlock was found for Method get_column_title_class</error>
       <error line="67">No DocBlock was found for Method render</error>
-      <error line="80">No DocBlock was found for Method render_data_attributes</error>
-      <error line="94">No DocBlock was found for Method render_connections_table</error>
-      <error line="116">No DocBlock was found for Method render_create_connections</error>
-      <error line="159">No DocBlock was found for Method connection_row</error>
-      <error line="163">No DocBlock was found for Method table_row</error>
-      <error line="179">No DocBlock was found for Method post_rows</error>
-      <error line="219">No DocBlock was found for Method ajax_create_post</error>
-      <error line="234">No DocBlock was found for Method ajax_connect</error>
-      <error line="238">No DocBlock was found for Method safe_connect</error>
-      <error line="255">No DocBlock was found for Method ajax_disconnect</error>
-      <error line="261">No DocBlock was found for Method ajax_clear_connections</error>
-      <error line="267">No DocBlock was found for Method ajax_search</error>
-      <error line="271">No DocBlock was found for Method refresh_candidates</error>
-      <error line="287">No DocBlock was found for Method _ajax_search</error>
-      <error line="301">No DocBlock was found for Method can_create_post</error>
-      <error line="319">No DocBlock was found for Method check_capability</error>
+      <error line="79">No DocBlock was found for Method get_folded_connections</error>
+      <error line="87">No DocBlock was found for Method render_data_attributes</error>
+      <error line="102">No DocBlock was found for Method render_connections_table</error>
+      <error line="124">No DocBlock was found for Method render_create_connections</error>
+      <error line="163">No DocBlock was found for Method connection_row</error>
+      <error line="167">No DocBlock was found for Method table_row</error>
+      <error line="183">No DocBlock was found for Method post_rows</error>
+      <error line="223">No DocBlock was found for Method ajax_create_post</error>
+      <error line="238">No DocBlock was found for Method ajax_connect</error>
+      <error line="242">No DocBlock was found for Method safe_connect</error>
+      <error line="259">No DocBlock was found for Method ajax_disconnect</error>
+      <error line="265">No DocBlock was found for Method ajax_clear_connections</error>
+      <error line="271">No DocBlock was found for Method ajax_search</error>
+      <error line="275">No DocBlock was found for Method refresh_candidates</error>
+      <error line="281">No DocBlock was found for Method _ajax_search</error>
+      <error line="295">No DocBlock was found for Method can_create_post</error>
+      <error line="313">No DocBlock was found for Method check_capability</error>
     </parse_markers>
     <interface namespace="default" line="6" package="Administration">
       <name>P2P_Field</name>
@@ -2139,50 +2244,35 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" line="80" package="Core">
-        <name>render_data_attributes</name>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="protected" line="94" package="Core">
-        <name>render_connections_table</name>
-        <argument line="94">
-          <name>$post</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="protected" line="116" package="Core">
-        <name>render_create_connections</name>
-        <argument line="116">
-          <name>$post</name>
-          <default/>
-          <type/>
-        </argument>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="protected" line="159" package="Core">
-        <name>connection_row</name>
-        <argument line="159">
-          <name>$p2p_id</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="159">
+      <method final="false" abstract="false" static="false" visibility="protected" line="79" package="Core">
+        <name>get_folded_connections</name>
+        <argument line="79">
           <name>$post_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="159">
-          <name>$render</name>
-          <default>false</default>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" line="87" package="Core">
+        <name>render_data_attributes</name>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" line="102" package="Core">
+        <name>render_connections_table</name>
+        <argument line="102">
+          <name>$post</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" line="124" package="Core">
+        <name>render_create_connections</name>
+        <argument line="124">
+          <name>$post</name>
+          <default/>
           <type/>
         </argument>
       </method>
       <method final="false" abstract="false" static="false" visibility="protected" line="163" package="Core">
-        <name>table_row</name>
-        <argument line="163">
-          <name>$columns</name>
-          <default/>
-          <type/>
-        </argument>
+        <name>connection_row</name>
         <argument line="163">
           <name>$p2p_id</name>
           <default/>
@@ -2199,114 +2289,86 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" line="179" package="Core">
+      <method final="false" abstract="false" static="false" visibility="protected" line="167" package="Core">
+        <name>table_row</name>
+        <argument line="167">
+          <name>$columns</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="167">
+          <name>$p2p_id</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="167">
+          <name>$post_id</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="167">
+          <name>$render</name>
+          <default>false</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" line="183" package="Core">
         <name>post_rows</name>
-        <argument line="179">
+        <argument line="183">
           <name>$current_post_id</name>
           <default/>
           <type/>
         </argument>
-        <argument line="179">
+        <argument line="183">
           <name>$page</name>
           <default>1</default>
           <type/>
         </argument>
-        <argument line="179">
+        <argument line="183">
           <name>$search</name>
           <default>''</default>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="219" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="223" package="Core">
         <name>ajax_create_post</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="234" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="238" package="Core">
         <name>ajax_connect</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" line="238" package="Core">
+      <method final="false" abstract="false" static="false" visibility="private" line="242" package="Core">
         <name>safe_connect</name>
-        <argument line="238">
+        <argument line="242">
           <name>$to</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="255" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="259" package="Core">
         <name>ajax_disconnect</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="261" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="265" package="Core">
         <name>ajax_clear_connections</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="267" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="271" package="Core">
         <name>ajax_search</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" line="271" package="Core">
+      <method final="false" abstract="false" static="false" visibility="private" line="275" package="Core">
         <name>refresh_candidates</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" line="287" package="Core">
+      <method final="false" abstract="false" static="false" visibility="private" line="281" package="Core">
         <name>_ajax_search</name>
-        <argument line="287">
+        <argument line="281">
           <name>$args</name>
           <default/>
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" line="301" package="Core">
+      <method final="false" abstract="false" static="false" visibility="protected" line="295" package="Core">
         <name>can_create_post</name>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" line="319" package="Core">
+      <method final="false" abstract="false" static="false" visibility="public" line="313" package="Core">
         <name>check_capability</name>
-      </method>
-    </class>
-  </file>
-  <file path="admin/utils.php" hash="548f598afb5332fe5e8491508f197ef7" package="Core">
-    <docblock>
-      <description/>
-      <long-description>
-</long-description>
-      <tag line="3" name="internal" description=""/>
-    </docblock>
-    <parse_markers>
-      <error line="3">No Page-level DocBlock was found in file admin/utils.php</error>
-      <critical line="3">No short description for class P2P_Mustache</critical>
-      <error line="8">No DocBlock was found for Property $loader</error>
-      <error line="9">No DocBlock was found for Property $mustache</error>
-      <error line="11">No DocBlock was found for Method init</error>
-      <error line="23">No DocBlock was found for Method render</error>
-    </parse_markers>
-    <class final="false" abstract="true" line="6" namespace="default" package="Core">
-      <name>P2P_Mustache</name>
-      <extends/>
-      <full_name>\P2P_Mustache</full_name>
-      <docblock>
-        <description/>
-        <long-description>
-</long-description>
-        <tag line="3" name="internal" description=""/>
-      </docblock>
-      <property final="false" static="true" visibility="private" line="8" package="Core">
-        <name>$loader</name>
-        <default/>
-      </property>
-      <property final="false" static="true" visibility="private" line="9" package="Core">
-        <name>$mustache</name>
-        <default/>
-      </property>
-      <method final="false" abstract="false" static="true" visibility="public" line="11" package="Core">
-        <name>init</name>
-      </method>
-      <method final="false" abstract="false" static="true" visibility="public" line="23" package="Core">
-        <name>render</name>
-        <argument line="23">
-          <name>$template</name>
-          <default/>
-          <type/>
-        </argument>
-        <argument line="23">
-          <name>$data</name>
-          <default/>
-          <type/>
-        </argument>
       </method>
     </class>
   </file>
